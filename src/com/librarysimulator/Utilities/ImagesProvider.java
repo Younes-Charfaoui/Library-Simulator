@@ -16,11 +16,11 @@ public final class ImagesProvider {
 
 
     //list of the names of the professor images
-    private static List<String> listOfProfessor ;
+    private static final List<String> listOfProfessor ;
     //list of the names of the employees images
-    private static List<String> listOfEmployees ;
+    private static final List<String> listOfEmployees ;
     //list of the names of the student images
-    private static List<String> listOfStudent ;
+    private static final List<String> listOfStudent ;
 
     static {
 

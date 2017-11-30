@@ -3,7 +3,6 @@ package com.librarysimulator.Utilities;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public final class CoordinatesProvider {
@@ -20,22 +19,22 @@ public final class CoordinatesProvider {
 
 
     // list of all places in the queue of the start with X and Y coordinates
-    private static List<Point2D> listOfChainPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfChainPlaces = new ArrayList<>();
 
     // list of all places in the return chain of the books with X and Y coordinates
-    private static List<Point2D> listOfReturnChainPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfReturnChainPlaces = new ArrayList<>();
 
     // list of all places in the importing queue with X and Y coordinates
-    private static List<Point2D> listOfImportPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfImportPlaces = new ArrayList<>();
 
     // list of all places in the table with X and Y coordinates
-    private static List<Point2D> listOfTablePlaces = new ArrayList<>();
+    private static final List<Point2D> listOfTablePlaces = new ArrayList<>();
 
     // list of all places in the waiting chairs with X and Y coordinates
-    private static List<Point2D> listOfWaitingPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfWaitingPlaces = new ArrayList<>();
 
     //list of all places of the Employees
-    private static List<Point2D> listOfEmployeesPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfEmployeesPlaces = new ArrayList<>();
 
     /*
      * initialization of the lists

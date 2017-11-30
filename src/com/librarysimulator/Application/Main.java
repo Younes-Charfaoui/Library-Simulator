@@ -37,7 +37,7 @@ public class Main extends Application {
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
 
     //a map that contains book and their semaphores
-    private HashMap<String, Semaphore> booksMap = new HashMap<>();
+    private final HashMap<String, Semaphore> booksMap = new HashMap<>();
 
     //the root node for the application
     private AnchorPane mRoot;
@@ -50,7 +50,7 @@ public class Main extends Application {
     private ObservableList<String> books;
 
     //we need in total of 4 semaphores for the firsts 4 places
-    private Semaphore[] chainSemaphores = {
+    private final Semaphore[] chainSemaphores = {
             new Semaphore(1),
             new Semaphore(1),
             new Semaphore(1),
@@ -58,14 +58,14 @@ public class Main extends Application {
     };
 
     //a chain semaphores in which if new thread come in , can't execute and the chain is full
-    private Semaphore chain = new Semaphore(4);
+    private final Semaphore chain = new Semaphore(4);
 
-    private Semaphore imports = new Semaphore(5);
+    private final Semaphore imports = new Semaphore(5);
 
-    private Semaphore entrySemaphore = new Semaphore(1);
+    private final Semaphore entrySemaphore = new Semaphore(1);
 
     //a hash map to see the available position in the Import Chain
-    private HashMap<Point2D, Boolean> availableImportPlaces = new HashMap<>();
+    private final HashMap<Point2D, Boolean> availableImportPlaces = new HashMap<>();
 
     /**
      * the start method of the application

@@ -14,7 +14,7 @@ public final class BooksProvider {
      */
 
     // a simple list that hold the name of books in string format
-    private static List<String> booksList ;
+    private static final List<String> booksList ;
 
     //initialization of the list with some books
     static {
