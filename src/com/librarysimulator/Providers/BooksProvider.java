@@ -1,4 +1,4 @@
-package com.librarysimulator.Utilities;
+package com.librarysimulator.Providers;
 
 
 import java.util.ArrayList;
@@ -25,6 +25,26 @@ public final class BooksProvider {
         booksList.add("D");
         booksList.add("E");
         booksList.add("F");
+        booksList.add("G");
+        booksList.add("H");
+        booksList.add("I");
+        booksList.add("J");
+        booksList.add("K");
+        booksList.add("L");
+        booksList.add("M");
+        booksList.add("N");
+        booksList.add("O");
+        booksList.add("P");
+        booksList.add("Q");
+        booksList.add("R");
+        booksList.add("S");
+        booksList.add("T");
+        booksList.add("U");
+        booksList.add("V");
+        booksList.add("W");
+        booksList.add("X");
+        booksList.add("Y");
+        booksList.add("Z");
     }
 
     //public getter of the list
