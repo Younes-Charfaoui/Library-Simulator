@@ -66,13 +66,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-783">
-              <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+            <state relative-caret-position="208">
+              <caret line="156" column="57" lean-forward="false" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
               <folding>
-                <element signature="e#11726#54887#0" expanded="false" />
+                <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+                <element signature="method#start#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+                <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+                <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+                <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+                <element signature="e#11638#11933#0" expanded="false" />
+                <element signature="e#11983#12281#0" expanded="false" />
+                <element signature="e#12328#12859#0" expanded="false" />
                 <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
                 <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -84,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
+            <state relative-caret-position="23">
               <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding>
                 <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
@@ -99,7 +110,7 @@
       <file leaf-file-name="CoordinatesProvider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
+            <state relative-caret-position="1978">
               <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
               <folding />
             </state>
@@ -109,9 +120,26 @@
       <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="613">
+              <caret line="738" column="0" lean-forward="true" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+              <folding>
+                <element signature="e#598#599#0" expanded="true" />
+                <element signature="e#630#631#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4071">
+              <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,14 +173,16 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Main.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/ImageUtility.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/ImagesProvider.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
         <option value="$PROJECT_DIR$/src/res/Others/style.css" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesProvider.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/CoordinatesProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/BooksProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
       </list>
     </option>
@@ -202,9 +232,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,6 +264,13 @@
               <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
               <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,7 +284,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,14 +305,20 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Younes Charfaoui\Documents\IDea Project\Library Simulator\src\res\Images\Things" />
-      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\com\librarysimulator" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images" />
       <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images\Things" />
       <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.librarysimulator.Models" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.librarysimulator.Providers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Younes Charfaoui\Documents\IDea Project\Library Simulator\src\res\Images\Things" />
+      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\com\librarysimulator" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -536,7 +579,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#11726#54887#0" expanded="false" />
+            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+            <element signature="method#start#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#11638#11933#0" expanded="false" />
+            <element signature="e#11983#12281#0" expanded="false" />
+            <element signature="e#12328#12859#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -544,52 +598,12 @@
             <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#11726#54887#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state relative-caret-position="253">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
             <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
@@ -599,24 +613,179 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="1978">
           <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-783">
-          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#11726#54887#0" expanded="false" />
+            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+            <element signature="method#start#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#11638#11933#0" expanded="false" />
+            <element signature="e#11983#12281#0" expanded="false" />
+            <element signature="e#12328#12859#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+            <element signature="method#start#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#11638#11933#0" expanded="false" />
+            <element signature="e#11983#12281#0" expanded="false" />
+            <element signature="e#12328#12859#0" expanded="false" />
+            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1978">
+          <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="156" column="57" lean-forward="false" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+          <folding>
+            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+            <element signature="method#start#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#11638#11933#0" expanded="false" />
+            <element signature="e#11983#12281#0" expanded="false" />
+            <element signature="e#12328#12859#0" expanded="false" />
+            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="738" column="0" lean-forward="true" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4071">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
