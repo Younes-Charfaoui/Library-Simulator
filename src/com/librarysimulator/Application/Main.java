@@ -47,15 +47,21 @@ public class Main extends Application {
     //
     private ImagesUtilities mImagesCreator = new ImagesUtilities();
 
-    // a choice box for the mBooksObservableList
-    private ChoiceBox<String> mBooksStudentChoiceBox, mBooksProfessorChoiceBox, mBooksRandomChoiceBox;
-    private CheckBox mRandomBookCheckBox;
-
     // the list holding the box to use them in the views and other things
     private ObservableList<String> mBooksObservableList;
 
     //we need in total of 4 semaphores for the firsts 4 places
     private final Semaphore[] mChainSemaphoresArray = {
+            new Semaphore(1),
+            new Semaphore(1),
+            new Semaphore(1),
+            new Semaphore(1)
+    };
+
+    //we need in total of 6 semaphores for the finals out 6 places
+    private final Semaphore[] mOutChainSemaphoresArray = {
+            new Semaphore(1),
+            new Semaphore(1),
             new Semaphore(1),
             new Semaphore(1),
             new Semaphore(1),
@@ -75,13 +81,13 @@ public class Main extends Application {
     private final HashMap<Point2D, Boolean> mAvailableImportPlaces = new HashMap<>(),
             mAvailableWaitingPlaces = new HashMap<>(),
             mAvailableTablePlaces = new HashMap<>(),
-            mAvailableOutPlaces = new HashMap<>();
+            mAvailableReturnPlaces = new HashMap<>();
 
     //mutex semaphore to protect These maps
     private Semaphore mAvailableImportMutex = new Semaphore(1),
             mAvailableTableMutex = new Semaphore(1),
             mAvailableWaitingMutex = new Semaphore(1),
-            mAvailableOutMutex = new Semaphore(1);
+            mAvailableReturnMutex = new Semaphore(1);
 
     // counters to counts the number of places are occupied by the people in the waiting chairs and the Table
     private int mWaitingCounter = 0, mTableCounter = 0;
@@ -90,8 +96,8 @@ public class Main extends Application {
     private Semaphore mWaitingCounterMutex = new Semaphore(1), mTableCounterMutex = new Semaphore(1);
 
 
-    //semaphores fro the Waiting and the tables places
-    private Semaphore mTableSemaphore = new Semaphore(12), mWaitingSemaphore = new Semaphore(3);
+    //semaphores fro the Waiting and the tables places and returning
+    private Semaphore mTableSemaphore = new Semaphore(12), mWaitingSemaphore = new Semaphore(3), mReturningSemaphore = new Semaphore(2);
 
     /**
      * the start method of the application
@@ -109,7 +115,7 @@ public class Main extends Application {
         mBooksObservableList = FXCollections.observableArrayList(BooksProvider.getBooksList());
 
         //initialization of the mBooksObservableList map and their semaphores
-        initBooksMap(1);
+        initBooksMap(3);
 
         //initialization of the hash maps which contains the Position of available places
         // in the Waiting , Import and Table places
@@ -217,10 +223,10 @@ public class Main extends Application {
      * initializing the choices boxes with the Books
      */
         System.out.println(mBooksObservableList.size());
-        mBooksStudentChoiceBox = new ChoiceBox<>(mBooksObservableList);
-        mBooksProfessorChoiceBox = new ChoiceBox<>(mBooksObservableList);
-        mBooksRandomChoiceBox = new ChoiceBox<>(mBooksObservableList);
-        mRandomBookCheckBox = new CheckBox();
+        ChoiceBox<String> mBooksStudentChoiceBox = new ChoiceBox<>(mBooksObservableList);
+        ChoiceBox<String> mBooksProfessorChoiceBox = new ChoiceBox<>(mBooksObservableList);
+        ChoiceBox<String> mBooksRandomChoiceBox = new ChoiceBox<>(mBooksObservableList);
+        CheckBox mRandomBookCheckBox = new CheckBox();
 
         //positioning the choice boxes
         mBooksStudentChoiceBox.setLayoutX(40);
@@ -546,7 +552,7 @@ public class Main extends Application {
                      */
 
                     Point2D waitingPoint = null;
-                    int indexInTheWaitingChairs= -1 ;
+                    int indexInTheWaitingChairs = -1;
 
                     Point2D tablePoint = null;
                     int indexInTable = -1;
@@ -569,17 +575,17 @@ public class Main extends Application {
                         //translate to the empty place in the Waiting chairs
                         mAvailableWaitingMutex.acquire();
                         for (int i = 0; i < mAvailableWaitingPlaces.size(); i++) {
-                            if(!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))){
+                            if (!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))) {
                                 indexInTheWaitingChairs = i;
                                 waitingPoint = CoordinatesProvider.getListOfWaitingPlaces().get(i);
-                                mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i),true);
+                                mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i), true);
                                 break;
                             }
                         }
                         mAvailableWaitingMutex.release();
 
                         //translation to the empty place in the waiting chair
-                        TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000),student);
+                        TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
                         transitionWaiting.setFromX(importPoint.getX() - initialX);
                         transitionWaiting.setFromY(importPoint.getY() - initialY);
                         transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -591,7 +597,7 @@ public class Main extends Application {
                         extraSemaphore.acquire();
                         //also we have to set the pace in the hash ap to false to indicate that the place is empty
                         mAvailableImportMutex.acquire();
-                        mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain),false);
+                        mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                         mAvailableImportMutex.release();
 
                         //after we have translate to the waiting place we have also tto release the import semaphore -_-
@@ -599,7 +605,7 @@ public class Main extends Application {
 
                         mTableSemaphore.acquire();
                         //now the reader is waiting ih the waiting chairs
-                        //todo translate to the empty place and decrement the mWaiting Counter
+                        //translate to the empty place and decrement the mWaiting Counter
 
                         //searching for the empty place in the Table
                         mAvailableTableMutex.acquire();
@@ -623,10 +629,6 @@ public class Main extends Application {
                         }
                         transitionToTable.setOnFinished(event -> extraSemaphore.release());
 
-//                    //increment the Value of the people who are sitting in the table
-//                    mTableCounterMutex.acquire();
-//                    mTableCounter++;
-//                    mTableCounterMutex.release();
 
                         Platform.runLater(transitionToTable::play);
                         extraSemaphore.acquire();
@@ -637,7 +639,7 @@ public class Main extends Application {
 
                         //we have to change the state of the actual place to false, to indicate that it is empty
                         mAvailableWaitingMutex.acquire();
-                        mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs),false);
+                        mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
                         mAvailableWaitingMutex.release();
 
                         //translate to the place
@@ -659,21 +661,21 @@ public class Main extends Application {
                                 mWaitingCounter++;
                                 mWaitingCounterMutex.release();
 
-                                //TODO: translate to the empty place in the waiting chair
+                                //translate to the empty place in the waiting chair
                                 //translate to the empty place in the Waiting chairs
                                 mAvailableWaitingMutex.acquire();
                                 for (int i = 0; i < mAvailableWaitingPlaces.size(); i++) {
-                                    if(!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))){
+                                    if (!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))) {
                                         indexInTheWaitingChairs = i;
                                         waitingPoint = CoordinatesProvider.getListOfWaitingPlaces().get(i);
-                                        mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i),true);
+                                        mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i), true);
                                         break;
                                     }
                                 }
                                 mAvailableWaitingMutex.release();
 
                                 //translation to the empty place in the waiting chair
-                                TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000),student);
+                                TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
                                 transitionWaiting.setFromX(importPoint.getX() - initialX);
                                 transitionWaiting.setFromY(importPoint.getY() - initialY);
                                 transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -685,7 +687,7 @@ public class Main extends Application {
                                 extraSemaphore.acquire();
                                 //also we have to set the pace in the hash ap to false to indicate that the place is empty
                                 mAvailableImportMutex.acquire();
-                                mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain),false);
+                                mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                                 mAvailableImportMutex.release();
 
                                 //after we have translate to the waiting place we have also tto release the import semaphore -_-
@@ -694,7 +696,7 @@ public class Main extends Application {
                                 mTableSemaphore.acquire();
 
                                 //now the reader is waiting ih the waiting chairs
-                                //todo translate to the empty place and decrement the mWaiting Counter
+                                //translate to the empty place and decrement the mWaiting Counter
 
                                 //searching for the empty place in the Table
                                 mAvailableTableMutex.acquire();
@@ -718,10 +720,6 @@ public class Main extends Application {
                                 }
                                 transitionToTable.setOnFinished(event -> extraSemaphore.release());
 
-//                    //increment the Value of the people who are sitting in the table
-//                    mTableCounterMutex.acquire();
-//                    mTableCounter++;
-//                    mTableCounterMutex.release();
 
                                 Platform.runLater(transitionToTable::play);
                                 extraSemaphore.acquire();
@@ -731,7 +729,7 @@ public class Main extends Application {
                                 mTableCounterMutex.release();
 
                                 mAvailableWaitingMutex.acquire();
-                                mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs),false);
+                                mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
                                 mAvailableWaitingMutex.release();
 
                                 //translate to the place
@@ -742,7 +740,7 @@ public class Main extends Application {
                             } else {
                                 //that means there is a place in the table
                                 mTableSemaphore.acquire();
-                                //TODO translate to the empty place in the Table
+                                //translate to the empty place in the Table
                                 //searching for the empty place in the Table
                                 mAvailableTableMutex.acquire();
                                 for (int i = 0; i < mAvailableTablePlaces.size(); i++) {
@@ -765,15 +763,11 @@ public class Main extends Application {
                                 }
                                 transitionToTable.setOnFinished(event -> extraSemaphore.release());
 
-//                    //increment the Value of the people who are sitting in the table
-//                    mTableCounterMutex.acquire();
-//                    mTableCounter++;
-//                    mTableCounterMutex.release();
 
                                 Platform.runLater(transitionToTable::play);
                                 extraSemaphore.acquire();
                                 mAvailableImportMutex.acquire();
-                                mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain),false);
+                                mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                                 mAvailableImportMutex.release();
 
                                 mImportSemaphore.release();
@@ -788,21 +782,21 @@ public class Main extends Application {
 
                             mWaitingCounter++;
                             mWaitingCounterMutex.release();
-                            //Todo: translate to the empty place in the waiting table
+                            //translate to the empty place in the waiting table
                             //translate to the empty place in the Waiting chairs
                             mAvailableWaitingMutex.acquire();
                             for (int i = 0; i < mAvailableWaitingPlaces.size(); i++) {
-                                if(!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))){
+                                if (!mAvailableWaitingPlaces.get(CoordinatesProvider.getListOfWaitingPlaces().get(i))) {
                                     indexInTheWaitingChairs = i;
                                     waitingPoint = CoordinatesProvider.getListOfWaitingPlaces().get(i);
-                                    mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i),true);
+                                    mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(i), true);
                                     break;
                                 }
                             }
                             mAvailableWaitingMutex.release();
 
                             //translation to the empty place in the waiting chair
-                            TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000),student);
+                            TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
                             transitionWaiting.setFromX(importPoint.getX() - initialX);
                             transitionWaiting.setFromY(importPoint.getY() - initialY);
                             transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -814,7 +808,7 @@ public class Main extends Application {
                             extraSemaphore.acquire();
                             //also we have to set the pace in the hash ap to false to indicate that the place is empty
                             mAvailableImportMutex.acquire();
-                            mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain),false);
+                            mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                             mAvailableImportMutex.release();
 
                             //after we have translate to the waiting place we have also tto release the import semaphore -_-
@@ -828,7 +822,7 @@ public class Main extends Application {
                             mTableCounterMutex.release();
 
                             //now the reader is waiting ih the waiting chairs
-                            //todo translate to the empty place and decrement the mWaiting Counter
+                            //translate to the empty place and decrement the mWaiting Counter
 
                             //searching for the empty place in the Table
                             mAvailableTableMutex.acquire();
@@ -852,16 +846,12 @@ public class Main extends Application {
                             }
                             transitionToTable.setOnFinished(event -> extraSemaphore.release());
 
-//                    //increment the Value of the people who are sitting in the table
-//                    mTableCounterMutex.acquire();
-//                    mTableCounter++;
-//                    mTableCounterMutex.release();
 
                             Platform.runLater(transitionToTable::play);
                             extraSemaphore.acquire();
 
                             mAvailableWaitingMutex.acquire();
-                            mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs),false);
+                            mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
                             mAvailableWaitingMutex.release();
 
                             //translate to the place
@@ -873,11 +863,159 @@ public class Main extends Application {
                     }
 
 
+                    Thread.sleep(60000);
 
-                    Thread.sleep(5000);
+                    /**
+                     * at this points the reader will leave the library , but before that he must report the book to the
+                     * return place, which gonna be accessed by another chain called the Outer Chain , this chain has 6
+                     * places, each of these must be in mutual exclusion -_-.
+                     */
+
+                    Point2D returnPoint = null;
+                    int indexInReturn = -1;
+
+                    mReturningSemaphore.acquire();
+
+                    mAvailableReturnMutex.acquire();
+                    for (int i = 0; i < mAvailableReturnPlaces.size(); i++) {
+                        if (!mAvailableReturnPlaces.get(CoordinatesProvider.getListOfReturningPlaces().get(i))) {
+                            indexInReturn = i;
+                            returnPoint = CoordinatesProvider.getListOfReturningPlaces().get(i);
+                            mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(i), true);
+                            break;
+                        }
+                    }
+                    mAvailableReturnMutex.release();
+
+                    //change the value of false in the available places to indicate that it is empty
+                    mAvailableTableMutex.acquire();
+                    mAvailableTablePlaces.put(CoordinatesProvider.getListOfTablePlaces().get(indexInTable), false);
+                    mAvailableTableMutex.release();
+
+                    mTableCounterMutex.acquire();
+                    mTableCounter--;
+                    mTableCounterMutex.release();
+
+                    //now we translate to the empty place
+                    TranslateTransition transitionToReturn = new TranslateTransition(Duration.millis(1000), student);
+                    transitionToReturn.setFromX(tablePoint.getX() - initialX);
+                    transitionToReturn.setFromY(tablePoint.getY() - initialY);
+                    transitionToReturn.setToX(returnPoint.getX() - initialX);
+                    transitionToReturn.setToY(returnPoint.getY() - initialY);
+                    transitionToReturn.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionToReturn::play);
+                    extraSemaphore.acquire();
+
+                    //and release the Table Semaphores
+                    mTableSemaphore.release();
+
+                    //simulating the return time
+                    Thread.sleep(1000);
+
+                    mBooksSemaphoresMap.get(book).release();
+                    mOutChainSemaphoresArray[0].acquire();
 
 
 
+                    //now we have to translate to the first place in the out chain
+                    TranslateTransition transitionOutOne = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutOne.setFromX(returnPoint.getX() - initialX);
+                    transitionOutOne.setFromY(returnPoint.getY() - initialY);
+                    transitionOutOne.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
+                    transitionOutOne.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
+                    transitionOutOne.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutOne::play);
+                    extraSemaphore.acquire();
+
+                    mAvailableReturnMutex.acquire();
+                    mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(indexInReturn),false);
+                    mAvailableReturnMutex.release();
+
+                    mReturningSemaphore.release();
+
+                    mOutChainSemaphoresArray[1].acquire();
+                    TranslateTransition transitionOutTwo = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutTwo.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
+                    transitionOutTwo.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
+                    transitionOutTwo.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
+                    transitionOutTwo.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
+                    transitionOutTwo.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutTwo::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[0].release();
+
+                    mOutChainSemaphoresArray[2].acquire();
+                    TranslateTransition transitionOutThree = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutThree.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
+                    transitionOutThree.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
+                    transitionOutThree.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
+                    transitionOutThree.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
+                    transitionOutThree.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutThree::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[1].release();
+
+                    mOutChainSemaphoresArray[3].acquire();
+                    TranslateTransition transitionOutFour = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutFour.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
+                    transitionOutFour.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
+                    transitionOutFour.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
+                    transitionOutFour.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
+                    transitionOutFour.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutFour::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[2].release();
+
+                    mOutChainSemaphoresArray[4].acquire();
+                    TranslateTransition transitionOutFive = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutFive.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
+                    transitionOutFive.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
+                    transitionOutFive.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
+                    transitionOutFive.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
+                    transitionOutFive.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutFive::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[3].release();
+
+                    mOutChainSemaphoresArray[5].acquire();
+                    TranslateTransition transitionOutSix = new TranslateTransition(Duration.millis(1000), student);
+                    transitionOutSix.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
+                    transitionOutSix.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
+                    transitionOutSix.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+                    transitionOutSix.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+                    transitionOutSix.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionOutSix::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[4].release();
+
+                    /**
+                     * and now the final transition out of the scene :D
+                     */
+                    TranslateTransition transitionFinal = new TranslateTransition(Duration.millis(1000), student);
+                    transitionFinal.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+                    transitionFinal.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+                    transitionFinal.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+                    transitionFinal.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY + 110);
+                    transitionFinal.setOnFinished(event -> extraSemaphore.release());
+
+                    Platform.runLater(transitionFinal::play);
+                    extraSemaphore.acquire();
+
+                    mOutChainSemaphoresArray[5].release();
+
+                    // at these points our reader is out of the scene
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
@@ -917,8 +1055,8 @@ public class Main extends Application {
         }
 
         //initialization of the hash map with the out chain places and the boolean of false
-        for (int i = 0; i < CoordinatesProvider.getListOfReturnChainPlaces().size(); i++) {
-            mAvailableOutPlaces.put(CoordinatesProvider.getListOfReturnChainPlaces().get(i), false);
+        for (int i = 0; i < CoordinatesProvider.getListOfReturningPlaces().size(); i++) {
+            mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(i), false);
         }
     }
 

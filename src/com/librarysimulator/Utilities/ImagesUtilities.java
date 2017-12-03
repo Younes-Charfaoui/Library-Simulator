@@ -159,7 +159,7 @@ public  class ImagesUtilities {
             out.add(
                     imageCreator.createImageViewOfStudent(
                             ImagesProvider.getListOfStudent().get(i),
-                            CoordinatesProvider.getListOfReturnChainPlaces().get(i))
+                            CoordinatesProvider.getListOfOutChainPlaces().get(i))
             );
         }
         root.getChildren().addAll(out);

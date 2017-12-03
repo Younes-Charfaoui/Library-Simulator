@@ -22,7 +22,7 @@ public final class CoordinatesProvider {
     private static final List<Point2D> listOfChainPlaces = new ArrayList<>();
 
     // list of all places in the return chain of the books with X and Y coordinates
-    private static final List<Point2D> listOfReturnChainPlaces = new ArrayList<>();
+    private static final List<Point2D> listOfOutChainPlaces = new ArrayList<>();
 
     // list of all places in the importing queue with X and Y coordinates
     private static final List<Point2D> listOfImportPlaces = new ArrayList<>();
@@ -35,6 +35,9 @@ public final class CoordinatesProvider {
 
     //list of all places of the Employees
     private static final List<Point2D> listOfEmployeesPlaces = new ArrayList<>();
+
+    //list of all Places of the Returning position
+    private static final List<Point2D> listOfReturningPlaces = new ArrayList<>();
 
     /*
      * initialization of the lists
@@ -63,12 +66,12 @@ public final class CoordinatesProvider {
         listOfChainPlaces.add(new Point2D(23,481));
         listOfChainPlaces.add(new Point2D(23,571));
 
-        listOfReturnChainPlaces.add(new Point2D(163,565));
-        listOfReturnChainPlaces.add(new Point2D(163,461));
-        listOfReturnChainPlaces.add(new Point2D(163,358));
-        listOfReturnChainPlaces.add(new Point2D(245,323));
-        listOfReturnChainPlaces.add(new Point2D(330,323));
-        listOfReturnChainPlaces.add(new Point2D(415,323));
+        listOfOutChainPlaces.add(new Point2D(415,323));
+        listOfOutChainPlaces.add(new Point2D(330,323));
+        listOfOutChainPlaces.add(new Point2D(245,323));
+        listOfOutChainPlaces.add(new Point2D(163,358));
+        listOfOutChainPlaces.add(new Point2D(163,461));
+        listOfOutChainPlaces.add(new Point2D(163,565));
 
         listOfTablePlaces.add(new Point2D(587,401));
         listOfTablePlaces.add(new Point2D(587,483));
@@ -82,6 +85,9 @@ public final class CoordinatesProvider {
         listOfTablePlaces.add(new Point2D(786,310));
         listOfTablePlaces.add(new Point2D(846,310));
         listOfTablePlaces.add(new Point2D(920,310));
+
+        listOfReturningPlaces.add(new Point2D(415,567));
+        listOfReturningPlaces.add(new Point2D(415,452));
     }
 
     /**
@@ -89,8 +95,14 @@ public final class CoordinatesProvider {
      * @return
      */
 
+
+
     public static List<Point2D> getListOfWaitingPlaces() {
         return listOfWaitingPlaces;
+    }
+
+    public static List<Point2D> getListOfReturningPlaces() {
+        return listOfReturningPlaces;
     }
 
     public static List<Point2D> getListOfEmployeesPlaces() {
@@ -101,8 +113,8 @@ public final class CoordinatesProvider {
         return listOfChainPlaces;
     }
 
-    public static List<Point2D> getListOfReturnChainPlaces() {
-        return listOfReturnChainPlaces;
+    public static List<Point2D> getListOfOutChainPlaces() {
+        return listOfOutChainPlaces;
     }
 
     public static List<Point2D> getListOfImportPlaces() {
