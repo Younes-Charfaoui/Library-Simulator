@@ -25,7 +25,6 @@ import java.util.*;
 import java.util.concurrent.Semaphore;
 
 
-
 public class Main extends Application {
 
     /**
@@ -35,11 +34,18 @@ public class Main extends Application {
      * threads and the Mutual exclusion of the critical sections
      */
 
+    public static final int DURATION_READING = 25000;
+
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
 
     //a map that contains book and their semaphores
-    public static final HashMap<String, Semaphore> mBooksSemaphoresMap = new HashMap<>();
+    public static final HashMap<String, Semaphore> mBooksSemaphoresMap = new HashMap<>(),
+            mPriorityBooksSemaphoresMap = new HashMap<>();
+
+
+    public static final HashMap<String, Integer> mStudentCounterMap = new HashMap<>(),
+            mProfessorCounterMap = new HashMap<>();
 
     //the root node for the application
     public static AnchorPane mRoot;
@@ -67,6 +73,9 @@ public class Main extends Application {
             new Semaphore(1),
             new Semaphore(1)
     };
+
+    public static final Semaphore mStudentCounterMutex = new Semaphore(1),
+            mProfessorCounterMutex = new Semaphore(1);
 
     //a mChainSemaphore semaphores in which if new thread come in , can't execute and the mChainSemaphore is full
     public static final Semaphore mChainSemaphore = new Semaphore(4);
@@ -115,7 +124,7 @@ public class Main extends Application {
         mBooksObservableList = FXCollections.observableArrayList(BooksProvider.getBooksList());
 
         //initialization of the mBooksObservableList map and their semaphores
-        initBooksMap(3);
+        initBooksMap(1);
 
         //initialization of the hash maps which contains the Position of available places
         // in the Waiting , Import and Table places
@@ -334,11 +343,11 @@ public class Main extends Application {
         mAddRandomButton.setOnMouseClicked(event -> {
             try {
                 mCurrentBookSemaphore.acquire();
-                new Student(mCurrentChoiceRandom).start();
-                new Student(mCurrentChoiceRandom).start();
-                new Student(mCurrentChoiceRandom).start();
-                new Student(mCurrentChoiceRandom).start();
-                new Student(mCurrentChoiceRandom).start();
+                new Student("Z").start();
+                new Student("W").start();
+                new Student("N").start();
+                new Student("X").start();
+                new Student("U").start();
                 mCurrentBookSemaphore.release();
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
@@ -391,6 +400,9 @@ public class Main extends Application {
     private void initBooksMap(int semaphoreValue) {
         for (String book : mBooksObservableList) {
             mBooksSemaphoresMap.put(book, new Semaphore(semaphoreValue));
+            mPriorityBooksSemaphoresMap.put(book, new Semaphore(semaphoreValue));
+            mStudentCounterMap.put(book, 0);
+            mProfessorCounterMap.put(book, 0);
         }
     }
 

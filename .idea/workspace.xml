@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -66,28 +72,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="156" column="57" lean-forward="false" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+            <state relative-caret-position="340">
+              <caret line="349" column="30" lean-forward="false" selection-start-line="349" selection-start-column="30" selection-end-line="349" selection-end-column="30" />
               <folding>
-                <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-                <element signature="method#start#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-                <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-                <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-                <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-                <element signature="e#11638#11933#0" expanded="false" />
-                <element signature="e#11983#12281#0" expanded="false" />
-                <element signature="e#12328#12859#0" expanded="false" />
-                <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-                <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
                 <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
               </folding>
@@ -95,12 +85,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="331">
+              <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
+                <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
+                <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+                <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+                <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+                <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+                <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+                <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+                <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+                <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+                <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
                 <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
               </folding>
             </state>
@@ -110,8 +110,8 @@
       <file leaf-file-name="CoordinatesProvider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1978">
-              <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+            <state relative-caret-position="400">
+              <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,11 +120,10 @@
       <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="738" column="0" lean-forward="true" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+            <state relative-caret-position="386">
+              <caret line="758" column="1" lean-forward="true" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
               <folding>
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
+                <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -133,12 +132,10 @@
       <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4071">
-              <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="90">
+              <caret line="743" column="53" lean-forward="true" selection-start-line="743" selection-start-column="53" selection-end-line="743" selection-end-column="53" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#674#675#0" expanded="true" />
-                <element signature="e#706#707#0" expanded="true" />
+                <marker date="1512401753260" expanded="true" signature="40301:40308" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -181,6 +178,7 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
@@ -232,6 +230,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -285,7 +284,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,20 +303,21 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images" />
-      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images\Things" />
-      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.librarysimulator.Models" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.librarysimulator.Providers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Younes Charfaoui\Documents\IDea Project\Library Simulator\src\res\Images\Things" />
       <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\com\librarysimulator" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.librarysimulator.Models" />
+      <recent name="com.librarysimulator.Providers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images" />
+      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res\Images\Things" />
+      <recent name="C:\Users\Younes Charfaoui\IdeaProjects\Library Simulator\src\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -518,42 +517,42 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8955224" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8947368" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25183374" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2555012" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2549168" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39954075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -565,7 +564,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -576,25 +575,127 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3105">
+          <caret line="156" column="57" lean-forward="false" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+          <folding>
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2116">
+          <caret line="95" column="7" lean-forward="false" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16721">
+          <caret line="741" column="0" lean-forward="false" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
+          <folding>
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16629">
+          <caret line="738" column="0" lean-forward="false" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+          <folding>
+            <marker date="1512401753260" expanded="true" signature="40301:40308" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="150" column="57" lean-forward="false" selection-start-line="150" selection-start-column="57" selection-end-line="150" selection-end-column="57" />
+          <folding>
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1978">
+          <caret line="89" column="7" lean-forward="true" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1512401753260" expanded="true" signature="40301:40308" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#11638#11933#0" expanded="false" />
-            <element signature="e#11983#12281#0" expanded="false" />
-            <element signature="e#12328#12859#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
           </folding>
@@ -606,6 +707,16 @@
         <state relative-caret-position="253">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
+            <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
@@ -624,8 +735,7 @@
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -635,22 +745,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#11638#11933#0" expanded="false" />
-            <element signature="e#11983#12281#0" expanded="false" />
-            <element signature="e#12328#12859#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
           </folding>
@@ -662,8 +756,7 @@
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -673,22 +766,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#11638#11933#0" expanded="false" />
-            <element signature="e#11983#12281#0" expanded="false" />
-            <element signature="e#12328#12859#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
           </folding>
@@ -700,92 +777,68 @@
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+        <state relative-caret-position="400">
+          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="156" column="57" lean-forward="false" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
-          <folding>
-            <element signature="docComment;field#mCurrentChoiceProfessor#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#11638#11933#0" expanded="false" />
-            <element signature="e#11983#12281#0" expanded="false" />
-            <element signature="e#12328#12859#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="738" column="0" lean-forward="true" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+        <state relative-caret-position="386">
+          <caret line="758" column="1" lean-forward="true" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
+            <marker date="1512401500812" expanded="true" signature="40269:40275" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4071">
-          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="743" column="53" lean-forward="true" selection-start-line="743" selection-start-column="53" selection-end-line="743" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#706#707#0" expanded="true" />
+            <marker date="1512401753260" expanded="true" signature="40301:40308" ph="{}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="331">
+          <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
+            <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
+            <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="349" column="30" lean-forward="false" selection-start-line="349" selection-start-column="30" selection-end-line="349" selection-end-column="30" />
+          <folding>
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -17,7 +17,7 @@ import static com.librarysimulator.Application.Main.*;
 
 public class Student extends Thread {
 
-    private String book ;
+    private String book;
 
     public Student(String book) {
         this.book = book;
@@ -238,8 +238,24 @@ public class Student extends Thread {
             //sleeping to simulate the waiting for the book to come
             Thread.sleep(1000);
 
+
             //acquiring the book by its semaphore
+
+            mStudentCounterMutex.acquire();
+            int counterEntry = mStudentCounterMap.get(book);
+            counterEntry++;
+            mStudentCounterMap.put(book, counterEntry);
+            mStudentCounterMutex.release();
+
+            mPriorityBooksSemaphoresMap.get(book).acquire();
+
             mBooksSemaphoresMap.get(book).acquire();
+
+            mStudentCounterMutex.acquire();
+            int counterOut = mStudentCounterMap.get(book);
+            counterOut--;
+            mStudentCounterMap.put(book, counterOut);
+            mStudentCounterMutex.release();
 
             /**
              * in this points there is multiple Things can happen so let's explain that in detail
@@ -577,7 +593,7 @@ public class Student extends Thread {
             }
 
 
-            Thread.sleep(60000);
+            Thread.sleep(DURATION_READING);
 
             /**
              * at this points the reader will leave the library , but before that he must report the book to the
@@ -627,9 +643,14 @@ public class Student extends Thread {
             //simulating the return time
             Thread.sleep(1000);
 
+            mProfessorCounterMutex.acquire();
+            if (mProfessorCounterMap.get(book) == 0) {
+                mPriorityBooksSemaphoresMap.get(book).release();
+            }
             Main.mBooksSemaphoresMap.get(book).release();
-            Main.mOutChainSemaphoresArray[0].acquire();
+            mProfessorCounterMutex.release();
 
+            Main.mOutChainSemaphoresArray[0].acquire();
 
 
             //now we have to translate to the first place in the out chain
@@ -644,7 +665,7 @@ public class Student extends Thread {
             extraSemaphore.acquire();
 
             Main.mAvailableReturnMutex.acquire();
-            Main.mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(indexInReturn),false);
+            Main.mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(indexInReturn), false);
             Main.mAvailableReturnMutex.release();
 
             Main.mReturningSemaphore.release();
@@ -733,9 +754,6 @@ public class Student extends Thread {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-
-
-
 
     }
 }

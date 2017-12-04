@@ -239,7 +239,19 @@ public class Professor extends Thread {
             Thread.sleep(1000);
 
             //acquiring the book by its semaphore
+            mProfessorCounterMutex.acquire();
+            int counterIn = mProfessorCounterMap.get(book);
+            counterIn++;
+            mProfessorCounterMap.put(book, counterIn);
+            mProfessorCounterMutex.release();
+
             mBooksSemaphoresMap.get(book).acquire();
+
+            mProfessorCounterMutex.acquire();
+            int counterOut = mProfessorCounterMap.get(book);
+            counterOut--;
+            mProfessorCounterMap.put(book, counterOut);
+            mProfessorCounterMutex.release();
 
             /**
              * in this points there is multiple Things can happen so let's explain that in detail
@@ -577,7 +589,7 @@ public class Professor extends Thread {
             }
 
 
-            Thread.sleep(60000);
+            Thread.sleep(DURATION_READING);
 
             /**
              * at this points the reader will leave the library , but before that he must report the book to the
@@ -627,7 +639,13 @@ public class Professor extends Thread {
             //simulating the return time
             Thread.sleep(1000);
 
+            if (mProfessorCounterMap.get(book) == 0 && mStudentCounterMap.get(book) > 0) {
+                mPriorityBooksSemaphoresMap.get(book).release();
+            }
+
             Main.mBooksSemaphoresMap.get(book).release();
+
+
             Main.mOutChainSemaphoresArray[0].acquire();
 
 
