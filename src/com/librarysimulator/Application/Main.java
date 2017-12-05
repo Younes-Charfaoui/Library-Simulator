@@ -34,7 +34,10 @@ public class Main extends Application {
      * threads and the Mutual exclusion of the critical sections
      */
 
+    //an constant for the duration of the reading ,animation and others
     public static final int DURATION_READING = 25000;
+    public static final int DURATION_ANIMATION = 1000;
+    public static final int DURATION_IMPORTING = 1000;
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
@@ -44,6 +47,7 @@ public class Main extends Application {
             mPriorityBooksSemaphoresMap = new HashMap<>();
 
 
+    //hash maps
     public static final HashMap<String, Integer> mStudentCounterMap = new HashMap<>(),
             mProfessorCounterMap = new HashMap<>();
 
@@ -77,36 +81,37 @@ public class Main extends Application {
     public static final Semaphore mStudentCounterMutex = new Semaphore(1),
             mProfessorCounterMutex = new Semaphore(1);
 
-    //a mChainSemaphore semaphores in which if new thread come in , can't execute and the mChainSemaphore is full
-    public static final Semaphore mChainSemaphore = new Semaphore(4);
 
-    public static final Semaphore mImportSemaphore = new Semaphore(5);
 
     public static final Semaphore mEntrySemaphore = new Semaphore(1);
 
-    public static Semaphore mCurrentBookSemaphore = new Semaphore(1);
+    public static final Semaphore mCurrentBookSemaphore = new Semaphore(1);
 
     //hash maps to see the available position in the Import Chain, Table, waiting sits and The out Chain
-    public static HashMap<Point2D, Boolean> mAvailableImportPlaces = new HashMap<>(),
+    public static final HashMap<Point2D, Boolean> mAvailableImportPlaces = new HashMap<>(),
             mAvailableWaitingPlaces = new HashMap<>(),
             mAvailableTablePlaces = new HashMap<>(),
             mAvailableReturnPlaces = new HashMap<>();
-
-    //mutex semaphore to protect These maps
-    public static Semaphore mAvailableImportMutex = new Semaphore(1),
-            mAvailableTableMutex = new Semaphore(1),
-            mAvailableWaitingMutex = new Semaphore(1),
-            mAvailableReturnMutex = new Semaphore(1);
 
     // counters to counts the number of places are occupied by the people in the waiting chairs and the Table
     public static int mWaitingCounter = 0, mTableCounter = 0;
 
     // mutex semaphores to protect the counters
-    public static Semaphore mWaitingCounterMutex = new Semaphore(1), mTableCounterMutex = new Semaphore(1);
+    public static final Semaphore mWaitingCounterMutex = new Semaphore(1),
+            mTableCounterMutex = new Semaphore(1),
+            mAvailableImportMutex = new Semaphore(1),
+            mAvailableTableMutex = new Semaphore(1),
+            mAvailableWaitingMutex = new Semaphore(1),
+            mAvailableReturnMutex = new Semaphore(1);
 
+    //a mChainSemaphore semaphores in which if new thread come in , can't execute and the mChainSemaphore is full
 
-    //semaphores fro the Waiting and the tables places and returning
-    public static Semaphore mTableSemaphore = new Semaphore(12), mWaitingSemaphore = new Semaphore(3), mReturningSemaphore = new Semaphore(2);
+    //semaphores for protecting some counters and the maps
+    public static final Semaphore mTableSemaphore = new Semaphore(12),
+            mWaitingSemaphore = new Semaphore(3),
+            mReturningSemaphore = new Semaphore(2),
+            mChainSemaphore = new Semaphore(4),
+            mImportSemaphore = new Semaphore(5);
 
     /**
      * the start method of the application
@@ -117,10 +122,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-
         //creating a root AnchorPane node for the Scene
         mRoot = new AnchorPane();
 
+        //the observable array list that holding the books
         mBooksObservableList = FXCollections.observableArrayList(BooksProvider.getBooksList());
 
         //initialization of the mBooksObservableList map and their semaphores
@@ -136,7 +141,7 @@ public class Main extends Application {
         //setup the button and their specification in separate method
         setupButtons();
 
-        //setup the static images and their specification n separate method
+        //setup the static images and their specification in separate method
         setupAndAddingImages();
 
         //ImagesUtilities.peoplePreview(mImagesCreator,mRoot);
@@ -150,7 +155,6 @@ public class Main extends Application {
          * the scene , the title and some other attribute
          */
         stage.setTitle("Library Simulator");
-
         stage.setScene(mainScene);
         stage.setResizable(false);
         stage.show();

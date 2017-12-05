@@ -29,24 +29,26 @@ public class Student extends Thread {
 
     @Override
     public void run() {
+
+        //instance of the Image Utilities to create image for the student
         ImagesUtilities mImagesCreator = new ImagesUtilities();
+
         //an inner semaphore that we will use to play animation one by one for each thread
         Semaphore extraSemaphore = new Semaphore(0);
-        // acquiring the mChainSemaphore semaphores
+
+        //a variable to hold the book of the current student to read
         String book = null;
+
+        //the image View
+        ImageView student = null;
         try {
 
             mCurrentBookSemaphore.acquire();
             book = this.book;
             mCurrentBookSemaphore.release();
 
+            // acquiring the mChainSemaphore semaphores
             mChainSemaphore.acquire();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
-
-        ImageView student = null;
-        try {
 
             //a random number generator to generate numbers for choosing a student image
             Random random = new Random();
@@ -60,12 +62,14 @@ public class Student extends Thread {
             student.setLayoutY(initialY);
 
             ImageView finalStudent = student;
+
             //adding the student imageView to the scene in the main Thread
             Platform.runLater(() -> mRoot.getChildren().add(finalStudent));
+
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        int duration = 1000;
+
 
 
         /**
@@ -73,7 +77,7 @@ public class Student extends Thread {
          */
 
         //from the initial points to the First place
-        TranslateTransition transitionZero = new TranslateTransition(Duration.millis(duration), student);
+        TranslateTransition transitionZero = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
         transitionZero.setFromX(0);
         transitionZero.setFromY(0);
         transitionZero.setToX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
@@ -81,7 +85,7 @@ public class Student extends Thread {
         transitionZero.setOnFinished(event -> extraSemaphore.release());
 
         //from 1 to the 2
-        TranslateTransition transitionOne = new TranslateTransition(Duration.millis(duration), student);
+        TranslateTransition transitionOne = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
         transitionOne.setFromX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
         transitionOne.setFromY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - initialY);
         transitionOne.setToX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
@@ -89,7 +93,7 @@ public class Student extends Thread {
         transitionOne.setOnFinished(event -> extraSemaphore.release());
 
         //from 2 to 3
-        TranslateTransition transitionTwo = new TranslateTransition(Duration.millis(duration), student);
+        TranslateTransition transitionTwo = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
         transitionTwo.setFromX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
         transitionTwo.setFromY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - initialY);
         transitionTwo.setToX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
@@ -97,7 +101,7 @@ public class Student extends Thread {
         transitionTwo.setOnFinished(event -> extraSemaphore.release());
 
         //from 3 to 4
-        TranslateTransition transitionThree = new TranslateTransition(Duration.millis(duration), student);
+        TranslateTransition transitionThree = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
         transitionThree.setFromX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
         transitionThree.setFromY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - initialY);
         transitionThree.setToX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
@@ -183,7 +187,7 @@ public class Student extends Thread {
             mAvailableImportMutex.release();
 
             //creating the translation from the mChainSemaphore to import via a place know as Entry points
-            TranslateTransition transitionEntry = new TranslateTransition(Duration.millis(duration), student);
+            TranslateTransition transitionEntry = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionEntry.setFromX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
             transitionEntry.setFromY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - initialY);
             transitionEntry.setToX(CoordinatesProvider.getEntryPoint().getX() - initialX);
@@ -192,7 +196,7 @@ public class Student extends Thread {
 
 
             // Creating the translation to the available import place
-            TranslateTransition transitionImport = new TranslateTransition(Duration.millis(duration), student);
+            TranslateTransition transitionImport = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionImport.setFromX(CoordinatesProvider.getEntryPoint().getX() - initialX);
             transitionImport.setFromY(CoordinatesProvider.getEntryPoint().getY() - initialY);
             if (importPoint != null) {
@@ -236,7 +240,7 @@ public class Student extends Thread {
 
 
             //sleeping to simulate the waiting for the book to come
-            Thread.sleep(1000);
+            Thread.sleep(DURATION_IMPORTING);
 
 
             //acquiring the book by its semaphore
@@ -315,7 +319,7 @@ public class Student extends Thread {
                 mAvailableWaitingMutex.release();
 
                 //translation to the empty place in the waiting chair
-                TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
+                TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                 transitionWaiting.setFromX(importPoint.getX() - initialX);
                 transitionWaiting.setFromY(importPoint.getY() - initialY);
                 transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -350,7 +354,7 @@ public class Student extends Thread {
                 mAvailableTableMutex.release();
 
                 //create a Translation from the Place where we The Reader is to the Available Place in the table
-                TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), student);
+                TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                 if (tablePoint != null) {
                     transitionToTable.setFromX(waitingPoint.getX() - initialX);
                     transitionToTable.setFromY(waitingPoint.getY() - initialY);
@@ -405,7 +409,7 @@ public class Student extends Thread {
                         mAvailableWaitingMutex.release();
 
                         //translation to the empty place in the waiting chair
-                        TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
+                        TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                         transitionWaiting.setFromX(importPoint.getX() - initialX);
                         transitionWaiting.setFromY(importPoint.getY() - initialY);
                         transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -441,7 +445,7 @@ public class Student extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), student);
+                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                         if (tablePoint != null) {
                             transitionToTable.setFromX(waitingPoint.getX() - initialX);
                             transitionToTable.setFromY(waitingPoint.getY() - initialY);
@@ -484,7 +488,7 @@ public class Student extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), student);
+                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                         if (tablePoint != null) {
                             transitionToTable.setFromX(importPoint.getX() - initialX);
                             transitionToTable.setFromY(importPoint.getY() - initialY);
@@ -526,7 +530,7 @@ public class Student extends Thread {
                     mAvailableWaitingMutex.release();
 
                     //translation to the empty place in the waiting chair
-                    TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), student);
+                    TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                     transitionWaiting.setFromX(importPoint.getX() - initialX);
                     transitionWaiting.setFromY(importPoint.getY() - initialY);
                     transitionWaiting.setToX(waitingPoint.getX() - initialX);
@@ -567,7 +571,7 @@ public class Student extends Thread {
                     mAvailableTableMutex.release();
 
                     //create a Translation from the Place where we The Reader is to the Available Place in the table
-                    TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), student);
+                    TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
                     if (tablePoint != null) {
                         transitionToTable.setFromX(waitingPoint.getX() - initialX);
                         transitionToTable.setFromY(waitingPoint.getY() - initialY);
@@ -627,7 +631,7 @@ public class Student extends Thread {
             Main.mTableCounterMutex.release();
 
             //now we translate to the empty place
-            TranslateTransition transitionToReturn = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionToReturn = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionToReturn.setFromX(tablePoint.getX() - initialX);
             transitionToReturn.setFromY(tablePoint.getY() - initialY);
             transitionToReturn.setToX(returnPoint.getX() - initialX);
@@ -654,7 +658,7 @@ public class Student extends Thread {
 
 
             //now we have to translate to the first place in the out chain
-            TranslateTransition transitionOutOne = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutOne = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutOne.setFromX(returnPoint.getX() - initialX);
             transitionOutOne.setFromY(returnPoint.getY() - initialY);
             transitionOutOne.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
@@ -671,7 +675,7 @@ public class Student extends Thread {
             Main.mReturningSemaphore.release();
 
             Main.mOutChainSemaphoresArray[1].acquire();
-            TranslateTransition transitionOutTwo = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutTwo = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutTwo.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
             transitionOutTwo.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
             transitionOutTwo.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
@@ -684,7 +688,7 @@ public class Student extends Thread {
             Main.mOutChainSemaphoresArray[0].release();
 
             Main.mOutChainSemaphoresArray[2].acquire();
-            TranslateTransition transitionOutThree = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutThree = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutThree.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
             transitionOutThree.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
             transitionOutThree.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
@@ -697,7 +701,7 @@ public class Student extends Thread {
             Main.mOutChainSemaphoresArray[1].release();
 
             Main.mOutChainSemaphoresArray[3].acquire();
-            TranslateTransition transitionOutFour = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutFour = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutFour.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
             transitionOutFour.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
             transitionOutFour.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
@@ -710,7 +714,7 @@ public class Student extends Thread {
             Main.mOutChainSemaphoresArray[2].release();
 
             Main.mOutChainSemaphoresArray[4].acquire();
-            TranslateTransition transitionOutFive = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutFive = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutFive.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
             transitionOutFive.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
             transitionOutFive.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
@@ -723,7 +727,7 @@ public class Student extends Thread {
             Main.mOutChainSemaphoresArray[3].release();
 
             Main.mOutChainSemaphoresArray[5].acquire();
-            TranslateTransition transitionOutSix = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionOutSix = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionOutSix.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
             transitionOutSix.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
             transitionOutSix.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
@@ -738,11 +742,11 @@ public class Student extends Thread {
             /**
              * and now the final transition out of the scene :D
              */
-            TranslateTransition transitionFinal = new TranslateTransition(Duration.millis(1000), student);
+            TranslateTransition transitionFinal = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
             transitionFinal.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
             transitionFinal.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
             transitionFinal.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
-            transitionFinal.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY + 110);
+            transitionFinal.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY );
             transitionFinal.setOnFinished(event -> extraSemaphore.release());
 
             Platform.runLater(transitionFinal::play);
@@ -754,6 +758,5 @@ public class Student extends Thread {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-
     }
 }
