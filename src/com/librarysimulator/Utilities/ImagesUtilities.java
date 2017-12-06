@@ -22,7 +22,7 @@ public  class ImagesUtilities {
      * @return ImageView
      * @throws Exception
      */
-    public ImageView createImageViewOfStudent(String nameOfImage, Point2D p) throws Exception {
+    private ImageView createImageViewOfStudent(String nameOfImage, Point2D p) throws Exception {
         Image image = new Image(getClass().getResource("/res/Images/Student/" + nameOfImage).toURI().toString());
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(40);

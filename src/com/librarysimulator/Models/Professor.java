@@ -1,6 +1,6 @@
 package com.librarysimulator.Models;
 
-import com.librarysimulator.Application.Main;
+
 import com.librarysimulator.Providers.CoordinatesProvider;
 import com.librarysimulator.Utilities.ImagesUtilities;
 import javafx.animation.TranslateTransition;
@@ -13,27 +13,33 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 import static com.librarysimulator.Application.Main.*;
-import static com.librarysimulator.Application.Main.mAvailableTableMutex;
+
 
 public class Professor extends Thread {
 
-    private String book;
+    private final String book;
 
     public Professor(String book) {
         this.book = book;
     }
 
-    private double initialX = CoordinatesProvider.getInitialPoint().getX();
-    private double initialY = CoordinatesProvider.getInitialPoint().getY();
+    private final double initialX = CoordinatesProvider.getInitialPoint().getX();
+    private final double initialY = CoordinatesProvider.getInitialPoint().getY();
 
 
     @Override
     public void run() {
         ImagesUtilities mImagesCreator = new ImagesUtilities();
+
         //an inner semaphore that we will use to play animation one by one for each thread
         Semaphore extraSemaphore = new Semaphore(0);
+
         // acquiring the mChainSemaphore semaphores
         String book = null;
+
+        //image view for the professor to animate
+        ImageView professor = null;
+
         try {
 
             mCurrentBookSemaphore.acquire();
@@ -41,12 +47,6 @@ public class Professor extends Thread {
             mCurrentBookSemaphore.release();
 
             mChainSemaphore.acquire();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
-
-        ImageView professor = null;
-        try {
 
             //a random number generator to generate numbers for choosing a professor image
             Random random = new Random();
@@ -59,51 +59,26 @@ public class Professor extends Thread {
             professor.setLayoutX(initialX);
             professor.setLayoutY(initialY);
 
+            //reference to the image of the student to add it tto the scene
             ImageView finalStudent = professor;
+
             //adding the professor imageView to the scene in the main Thread
             Platform.runLater(() -> mRoot.getChildren().add(finalStudent));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        int duration = 1000;
-
 
         /**
          * defining transition that the Student will passe throw along his lifecycle
          */
 
         //from the initial points to the First place
-        TranslateTransition transitionZero = new TranslateTransition(Duration.millis(duration), professor);
-        transitionZero.setFromX(0);
-        transitionZero.setFromY(0);
-        transitionZero.setToX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
-        transitionZero.setToY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - initialY);
-        transitionZero.setOnFinished(event -> extraSemaphore.release());
-
-        //from 1 to the 2
-        TranslateTransition transitionOne = new TranslateTransition(Duration.millis(duration), professor);
-        transitionOne.setFromX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
-        transitionOne.setFromY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - initialY);
-        transitionOne.setToX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
-        transitionOne.setToY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - initialY);
-        transitionOne.setOnFinished(event -> extraSemaphore.release());
-
-        //from 2 to 3
-        TranslateTransition transitionTwo = new TranslateTransition(Duration.millis(duration), professor);
-        transitionTwo.setFromX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
-        transitionTwo.setFromY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - initialY);
-        transitionTwo.setToX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
-        transitionTwo.setToY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - initialY);
-        transitionTwo.setOnFinished(event -> extraSemaphore.release());
-
-        //from 3 to 4
-        TranslateTransition transitionThree = new TranslateTransition(Duration.millis(duration), professor);
-        transitionThree.setFromX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
-        transitionThree.setFromY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - initialY);
-        transitionThree.setToX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
-        transitionThree.setToY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - initialY);
-        transitionThree.setOnFinished(event -> extraSemaphore.release());
-
+        TranslateTransition transitionAnimation = new TranslateTransition(Duration.millis(DURATION_ANIMATION), professor);
+        transitionAnimation.setFromX(0);
+        transitionAnimation.setFromY(0);
+        transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
+        transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - initialY);
+        transitionAnimation.setOnFinished(event -> extraSemaphore.release());
 
         try {
 
@@ -114,38 +89,56 @@ public class Professor extends Thread {
              */
 
             //getting access to the first place by its semaphore
-            mChainSemaphoresArray[0].acquire();
+            mChainSemaphoresList.get(0).acquire();
             //then if we get access we can translate throw it in The main Thread
-            Platform.runLater(transitionZero::play);
+            Platform.runLater(transitionAnimation::play);
             //waiting the animation to stop
             extraSemaphore.acquire();
+
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - initialY);
+
 
             //getting access to the second place by its semaphore
-            mChainSemaphoresArray[1].acquire();
+            mChainSemaphoresList.get(1).acquire();
             //then if we get access we can translate throw it in The main Thread
-            Platform.runLater(transitionOne::play);
+            Platform.runLater(transitionAnimation::play);
             //waiting the animation to stop
             extraSemaphore.acquire();
+
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - initialY);
+
             //now we can let someone access the first places because we are in the second place
-            mChainSemaphoresArray[0].release();
+            mChainSemaphoresList.get(0).release();
 
             //getting access to the third place by its semaphore
-            mChainSemaphoresArray[2].acquire();
+            mChainSemaphoresList.get(2).acquire();
             //then if we get access we can translate throw it in The main Thread
-            Platform.runLater(transitionTwo::play);
+            Platform.runLater(transitionAnimation::play);
             //waiting the animation to stop
             extraSemaphore.acquire();
+
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - initialY);
+
             //now we can let someone access the second places because we are in the third place
-            mChainSemaphoresArray[1].release();
+            mChainSemaphoresList.get(1).release();
 
             //getting access to the final mChainSemaphore place by its semaphore
-            mChainSemaphoresArray[3].acquire();
+            mChainSemaphoresList.get(3).acquire();
             //then if we get access we can translate throw it in The main Thread
-            Platform.runLater(transitionThree::play);
+            Platform.runLater(transitionAnimation::play);
             //waiting the animation to stop
             extraSemaphore.acquire();
             //now we can let someone access the third places because we are in the final place
-            mChainSemaphoresArray[2].release();
+            mChainSemaphoresList.get(2).release();
 
 
             /**
@@ -183,34 +176,28 @@ public class Professor extends Thread {
             mAvailableImportMutex.release();
 
             //creating the translation from the mChainSemaphore to import via a place know as Entry points
-            TranslateTransition transitionEntry = new TranslateTransition(Duration.millis(duration), professor);
-            transitionEntry.setFromX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
-            transitionEntry.setFromY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - initialY);
-            transitionEntry.setToX(CoordinatesProvider.getEntryPoint().getX() - initialX);
-            transitionEntry.setToY(CoordinatesProvider.getEntryPoint().getY() - initialY);
-            transitionEntry.setOnFinished(event -> extraSemaphore.release());
-
-
-            // Creating the translation to the available import place
-            TranslateTransition transitionImport = new TranslateTransition(Duration.millis(duration), professor);
-            transitionImport.setFromX(CoordinatesProvider.getEntryPoint().getX() - initialX);
-            transitionImport.setFromY(CoordinatesProvider.getEntryPoint().getY() - initialY);
-            if (importPoint != null) {
-                transitionImport.setToX(importPoint.getX() - initialX);
-                transitionImport.setToY(importPoint.getY() - initialY);
-            }
-            transitionImport.setOnFinished(event -> extraSemaphore.release());
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getEntryPoint().getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getEntryPoint().getY() - initialY);
 
             //then we can translate to the entry point safely in the Main Thread
-            Platform.runLater(transitionEntry::play);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
+            // Creating the translation to the available import place
+            transitionAnimation.setFromX(CoordinatesProvider.getEntryPoint().getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getEntryPoint().getY() - initialY);
+            if (importPoint != null) {
+                transitionAnimation.setToX(importPoint.getX() - initialX);
+                transitionAnimation.setToY(importPoint.getY() - initialY);
+            }
             //realising the Position number 4
-            mChainSemaphoresArray[3].release();
+            mChainSemaphoresList.get(3).release();
 
 
             //finally we can translate to the import place with the indexInImportChain
-            Platform.runLater(transitionImport::play);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
             //realising the mChainSemaphore semaphore for letting someone out to enter in the mChainSemaphore
@@ -311,16 +298,15 @@ public class Professor extends Thread {
                 mAvailableWaitingMutex.release();
 
                 //translation to the empty place in the waiting chair
-                TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), professor);
-                transitionWaiting.setFromX(importPoint.getX() - initialX);
-                transitionWaiting.setFromY(importPoint.getY() - initialY);
-                transitionWaiting.setToX(waitingPoint.getX() - initialX);
-                transitionWaiting.setToY(waitingPoint.getY() - initialY);
-                transitionWaiting.setOnFinished(event -> extraSemaphore.release());
-
-                Platform.runLater(transitionWaiting::play);
-
+                if (importPoint != null && waitingPoint != null){
+                    transitionAnimation.setFromX(importPoint.getX() - initialX);
+                    transitionAnimation.setFromY(importPoint.getY() - initialY);
+                    transitionAnimation.setToX(waitingPoint.getX() - initialX);
+                    transitionAnimation.setToY(waitingPoint.getY() - initialY);
+                }
+                Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
+
                 //also we have to set the pace in the hash ap to false to indicate that the place is empty
                 mAvailableImportMutex.acquire();
                 mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
@@ -346,17 +332,14 @@ public class Professor extends Thread {
                 mAvailableTableMutex.release();
 
                 //create a Translation from the Place where we The Reader is to the Available Place in the table
-                TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), professor);
-                if (tablePoint != null) {
-                    transitionToTable.setFromX(waitingPoint.getX() - initialX);
-                    transitionToTable.setFromY(waitingPoint.getY() - initialY);
-                    transitionToTable.setToX(tablePoint.getX() - initialX);
-                    transitionToTable.setToY(tablePoint.getY() - initialY);
+
+                if (tablePoint != null && waitingPoint != null) {
+                    transitionAnimation.setFromX(waitingPoint.getX() - initialX);
+                    transitionAnimation.setFromY(waitingPoint.getY() - initialY);
+                    transitionAnimation.setToX(tablePoint.getX() - initialX);
+                    transitionAnimation.setToY(tablePoint.getY() - initialY);
                 }
-                transitionToTable.setOnFinished(event -> extraSemaphore.release());
-
-
-                Platform.runLater(transitionToTable::play);
+                Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
 
                 mTableCounterMutex.acquire();
@@ -401,16 +384,16 @@ public class Professor extends Thread {
                         mAvailableWaitingMutex.release();
 
                         //translation to the empty place in the waiting chair
-                        TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), professor);
-                        transitionWaiting.setFromX(importPoint.getX() - initialX);
-                        transitionWaiting.setFromY(importPoint.getY() - initialY);
-                        transitionWaiting.setToX(waitingPoint.getX() - initialX);
-                        transitionWaiting.setToY(waitingPoint.getY() - initialY);
-                        transitionWaiting.setOnFinished(event -> extraSemaphore.release());
 
-                        Platform.runLater(transitionWaiting::play);
-
+                        if (importPoint != null && waitingPoint != null){
+                            transitionAnimation.setFromX(importPoint.getX() - initialX);
+                            transitionAnimation.setFromY(importPoint.getY() - initialY);
+                            transitionAnimation.setToX(waitingPoint.getX() - initialX);
+                            transitionAnimation.setToY(waitingPoint.getY() - initialY);
+                        }
+                        Platform.runLater(transitionAnimation::play);
                         extraSemaphore.acquire();
+
                         //also we have to set the pace in the hash ap to false to indicate that the place is empty
                         mAvailableImportMutex.acquire();
                         mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
@@ -437,17 +420,14 @@ public class Professor extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), professor);
-                        if (tablePoint != null) {
-                            transitionToTable.setFromX(waitingPoint.getX() - initialX);
-                            transitionToTable.setFromY(waitingPoint.getY() - initialY);
-                            transitionToTable.setToX(tablePoint.getX() - initialX);
-                            transitionToTable.setToY(tablePoint.getY() - initialY);
+
+                        if (tablePoint != null && waitingPoint != null) {
+                            transitionAnimation.setFromX(waitingPoint.getX() - initialX);
+                            transitionAnimation.setFromY(waitingPoint.getY() - initialY);
+                            transitionAnimation.setToX(tablePoint.getX() - initialX);
+                            transitionAnimation.setToY(tablePoint.getY() - initialY);
                         }
-                        transitionToTable.setOnFinished(event -> extraSemaphore.release());
-
-
-                        Platform.runLater(transitionToTable::play);
+                        Platform.runLater(transitionAnimation::play);
                         extraSemaphore.acquire();
 
                         mTableCounterMutex.acquire();
@@ -480,18 +460,16 @@ public class Professor extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), professor);
-                        if (tablePoint != null) {
-                            transitionToTable.setFromX(importPoint.getX() - initialX);
-                            transitionToTable.setFromY(importPoint.getY() - initialY);
-                            transitionToTable.setToX(tablePoint.getX() - initialX);
-                            transitionToTable.setToY(tablePoint.getY() - initialY);
+
+                        if (tablePoint != null && importPoint != null) {
+                            transitionAnimation.setFromX(importPoint.getX() - initialX);
+                            transitionAnimation.setFromY(importPoint.getY() - initialY);
+                            transitionAnimation.setToX(tablePoint.getX() - initialX);
+                            transitionAnimation.setToY(tablePoint.getY() - initialY);
                         }
-                        transitionToTable.setOnFinished(event -> extraSemaphore.release());
-
-
-                        Platform.runLater(transitionToTable::play);
+                        Platform.runLater(transitionAnimation::play);
                         extraSemaphore.acquire();
+
                         mAvailableImportMutex.acquire();
                         mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                         mAvailableImportMutex.release();
@@ -503,11 +481,12 @@ public class Professor extends Thread {
                         mWaitingCounterMutex.release();
                     }
                 } else {
+
                     //that means there only one or two in the waiting chairs
                     mWaitingSemaphore.acquire();
-
                     mWaitingCounter++;
                     mWaitingCounterMutex.release();
+
                     //translate to the empty place in the waiting table
                     //translate to the empty place in the Waiting chairs
                     mAvailableWaitingMutex.acquire();
@@ -522,16 +501,15 @@ public class Professor extends Thread {
                     mAvailableWaitingMutex.release();
 
                     //translation to the empty place in the waiting chair
-                    TranslateTransition transitionWaiting = new TranslateTransition(Duration.millis(1000), professor);
-                    transitionWaiting.setFromX(importPoint.getX() - initialX);
-                    transitionWaiting.setFromY(importPoint.getY() - initialY);
-                    transitionWaiting.setToX(waitingPoint.getX() - initialX);
-                    transitionWaiting.setToY(waitingPoint.getY() - initialY);
-                    transitionWaiting.setOnFinished(event -> extraSemaphore.release());
-
-                    Platform.runLater(transitionWaiting::play);
-
+                    if (importPoint != null && waitingPoint != null){
+                        transitionAnimation.setFromX(importPoint.getX() - initialX);
+                        transitionAnimation.setFromY(importPoint.getY() - initialY);
+                        transitionAnimation.setToX(waitingPoint.getX() - initialX);
+                        transitionAnimation.setToY(waitingPoint.getY() - initialY);
+                    }
+                    Platform.runLater(transitionAnimation::play);
                     extraSemaphore.acquire();
+
                     //also we have to set the pace in the hash ap to false to indicate that the place is empty
                     mAvailableImportMutex.acquire();
                     mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
@@ -563,28 +541,25 @@ public class Professor extends Thread {
                     mAvailableTableMutex.release();
 
                     //create a Translation from the Place where we The Reader is to the Available Place in the table
-                    TranslateTransition transitionToTable = new TranslateTransition(Duration.millis(1000), professor);
-                    if (tablePoint != null) {
-                        transitionToTable.setFromX(waitingPoint.getX() - initialX);
-                        transitionToTable.setFromY(waitingPoint.getY() - initialY);
-                        transitionToTable.setToX(tablePoint.getX() - initialX);
-                        transitionToTable.setToY(tablePoint.getY() - initialY);
+
+                    if (tablePoint != null && waitingPoint != null) {
+                        transitionAnimation.setFromX(waitingPoint.getX() - initialX);
+                        transitionAnimation.setFromY(waitingPoint.getY() - initialY);
+                        transitionAnimation.setToX(tablePoint.getX() - initialX);
+                        transitionAnimation.setToY(tablePoint.getY() - initialY);
                     }
-                    transitionToTable.setOnFinished(event -> extraSemaphore.release());
-
-
-                    Platform.runLater(transitionToTable::play);
+                    Platform.runLater(transitionAnimation::play);
                     extraSemaphore.acquire();
 
                     mAvailableWaitingMutex.acquire();
-                    Main.mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
+                    mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
                     mAvailableWaitingMutex.release();
 
                     //translate to the place
-                    Main.mWaitingCounterMutex.acquire();
-                    Main.mWaitingCounter--;
-                    Main.mWaitingCounterMutex.release();
-                    Main.mWaitingSemaphore.release();
+                    mWaitingCounterMutex.acquire();
+                    mWaitingCounter--;
+                    mWaitingCounterMutex.release();
+                    mWaitingSemaphore.release();
                 }
             }
 
@@ -600,41 +575,40 @@ public class Professor extends Thread {
             Point2D returnPoint = null;
             int indexInReturn = -1;
 
-            Main.mReturningSemaphore.acquire();
+            mReturningSemaphore.acquire();
 
-            Main.mAvailableReturnMutex.acquire();
-            for (int i = 0; i < Main.mAvailableReturnPlaces.size(); i++) {
-                if (!Main.mAvailableReturnPlaces.get(CoordinatesProvider.getListOfReturningPlaces().get(i))) {
+            mAvailableReturnMutex.acquire();
+            for (int i = 0; i < mAvailableReturnPlaces.size(); i++) {
+                if (!mAvailableReturnPlaces.get(CoordinatesProvider.getListOfReturningPlaces().get(i))) {
                     indexInReturn = i;
                     returnPoint = CoordinatesProvider.getListOfReturningPlaces().get(i);
-                    Main.mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(i), true);
+                    mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(i), true);
                     break;
                 }
             }
-            Main.mAvailableReturnMutex.release();
+            mAvailableReturnMutex.release();
 
             //change the value of false in the available places to indicate that it is empty
             mAvailableTableMutex.acquire();
             mAvailableTablePlaces.put(CoordinatesProvider.getListOfTablePlaces().get(indexInTable), false);
             mAvailableTableMutex.release();
 
-            Main.mTableCounterMutex.acquire();
-            Main.mTableCounter--;
-            Main.mTableCounterMutex.release();
+            mTableCounterMutex.acquire();
+            mTableCounter--;
+            mTableCounterMutex.release();
 
             //now we translate to the empty place
-            TranslateTransition transitionToReturn = new TranslateTransition(Duration.millis(1000), professor);
-            transitionToReturn.setFromX(tablePoint.getX() - initialX);
-            transitionToReturn.setFromY(tablePoint.getY() - initialY);
-            transitionToReturn.setToX(returnPoint.getX() - initialX);
-            transitionToReturn.setToY(returnPoint.getY() - initialY);
-            transitionToReturn.setOnFinished(event -> extraSemaphore.release());
-
-            Platform.runLater(transitionToReturn::play);
+            if(tablePoint != null && returnPoint!= null){
+                transitionAnimation.setFromX(tablePoint.getX() - initialX);
+                transitionAnimation.setFromY(tablePoint.getY() - initialY);
+                transitionAnimation.setToX(returnPoint.getX() - initialX);
+                transitionAnimation.setToY(returnPoint.getY() - initialY);
+            }
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
             //and release the Table Semaphores
-            Main.mTableSemaphore.release();
+            mTableSemaphore.release();
 
             //simulating the return time
             Thread.sleep(1000);
@@ -643,114 +617,99 @@ public class Professor extends Thread {
                 mPriorityBooksSemaphoresMap.get(book).release();
             }
 
-            Main.mBooksSemaphoresMap.get(book).release();
+            mBooksSemaphoresMap.get(book).release();
 
 
-            Main.mOutChainSemaphoresArray[0].acquire();
+            mOutChainSemaphoresList.get(0).acquire();
 
 
             //now we have to translate to the first place in the out chain
-            TranslateTransition transitionOutOne = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutOne.setFromX(returnPoint.getX() - initialX);
-            transitionOutOne.setFromY(returnPoint.getY() - initialY);
-            transitionOutOne.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
-            transitionOutOne.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
-            transitionOutOne.setOnFinished(event -> extraSemaphore.release());
-
-            Platform.runLater(transitionOutOne::play);
+            if(returnPoint != null){
+                transitionAnimation.setFromX(returnPoint.getX() - initialX);
+                transitionAnimation.setFromY(returnPoint.getY() - initialY);
+                transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
+                transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
+            }
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mAvailableReturnMutex.acquire();
-            Main.mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(indexInReturn), false);
-            Main.mAvailableReturnMutex.release();
+            mAvailableReturnMutex.acquire();
+            mAvailableReturnPlaces.put(CoordinatesProvider.getListOfReturningPlaces().get(indexInReturn), false);
+            mAvailableReturnMutex.release();
 
-            Main.mReturningSemaphore.release();
+            mReturningSemaphore.release();
 
-            Main.mOutChainSemaphoresArray[1].acquire();
-            TranslateTransition transitionOutTwo = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutTwo.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
-            transitionOutTwo.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
-            transitionOutTwo.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
-            transitionOutTwo.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
-            transitionOutTwo.setOnFinished(event -> extraSemaphore.release());
+            mOutChainSemaphoresList.get(1).acquire();
 
-            Platform.runLater(transitionOutTwo::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[0].release();
+            mOutChainSemaphoresList.get(0).release();
 
-            Main.mOutChainSemaphoresArray[2].acquire();
-            TranslateTransition transitionOutThree = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutThree.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
-            transitionOutThree.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
-            transitionOutThree.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
-            transitionOutThree.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
-            transitionOutThree.setOnFinished(event -> extraSemaphore.release());
+            mOutChainSemaphoresList.get(2).acquire();
 
-            Platform.runLater(transitionOutThree::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[1].release();
+            mOutChainSemaphoresList.get(1).release();
 
-            Main.mOutChainSemaphoresArray[3].acquire();
-            TranslateTransition transitionOutFour = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutFour.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
-            transitionOutFour.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
-            transitionOutFour.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
-            transitionOutFour.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
-            transitionOutFour.setOnFinished(event -> extraSemaphore.release());
+            mOutChainSemaphoresList.get(3).acquire();
 
-            Platform.runLater(transitionOutFour::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[2].release();
+            mOutChainSemaphoresList.get(2).release();
 
-            Main.mOutChainSemaphoresArray[4].acquire();
-            TranslateTransition transitionOutFive = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutFive.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
-            transitionOutFive.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
-            transitionOutFive.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
-            transitionOutFive.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
-            transitionOutFive.setOnFinished(event -> extraSemaphore.release());
+            mOutChainSemaphoresList.get(4).acquire();
 
-            Platform.runLater(transitionOutFive::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[3].release();
+            mOutChainSemaphoresList.get(3).release();
 
-            Main.mOutChainSemaphoresArray[5].acquire();
-            TranslateTransition transitionOutSix = new TranslateTransition(Duration.millis(1000), professor);
-            transitionOutSix.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
-            transitionOutSix.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
-            transitionOutSix.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
-            transitionOutSix.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
-            transitionOutSix.setOnFinished(event -> extraSemaphore.release());
+            mOutChainSemaphoresList.get(5).acquire();
 
-            Platform.runLater(transitionOutSix::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[4].release();
+            mOutChainSemaphoresList.get(4).release();
 
             /**
              * and now the final transition out of the scene :D
              */
-            TranslateTransition transitionFinal = new TranslateTransition(Duration.millis(1000), professor);
-            transitionFinal.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
-            transitionFinal.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
-            transitionFinal.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
-            transitionFinal.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY + 110);
-            transitionFinal.setOnFinished(event -> extraSemaphore.release());
 
-            Platform.runLater(transitionFinal::play);
+            transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+            transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            Main.mOutChainSemaphoresArray[5].release();
+            mOutChainSemaphoresList.get(5).release();
 
             // at these points our reader is out of the scene
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-
-
     }
 }

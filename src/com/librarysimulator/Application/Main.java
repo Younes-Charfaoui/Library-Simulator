@@ -1,6 +1,5 @@
 package com.librarysimulator.Application;
 
-
 import com.librarysimulator.Models.Professor;
 import com.librarysimulator.Models.Student;
 import com.librarysimulator.Providers.BooksProvider;
@@ -24,7 +23,6 @@ import java.net.URISyntaxException;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
-
 public class Main extends Application {
 
     /**
@@ -38,6 +36,7 @@ public class Main extends Application {
     public static final int DURATION_READING = 25000;
     public static final int DURATION_ANIMATION = 1000;
     public static final int DURATION_IMPORTING = 1000;
+    public static final int DURATION_RETURNING = 1000;
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
@@ -46,8 +45,7 @@ public class Main extends Application {
     public static final HashMap<String, Semaphore> mBooksSemaphoresMap = new HashMap<>(),
             mPriorityBooksSemaphoresMap = new HashMap<>();
 
-
-    //hash maps
+    //hash maps for holding the number of students and professors there are waiting for each book
     public static final HashMap<String, Integer> mStudentCounterMap = new HashMap<>(),
             mProfessorCounterMap = new HashMap<>();
 
@@ -55,36 +53,25 @@ public class Main extends Application {
     public static AnchorPane mRoot;
 
     //an instance of the imageUtility to create ImageViews
-    private ImagesUtilities mImagesCreator = new ImagesUtilities();
+    private final ImagesUtilities mImagesCreator = new ImagesUtilities();
 
-    // the list holding the box to use them in the views and other things
+    //the list holding the books to use them in the views and other things
     private ObservableList<String> mBooksObservableList;
 
     //we need in total of 4 semaphores for the firsts 4 places
-    public static final Semaphore[] mChainSemaphoresArray = {
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1)
-    };
+    public static final List<Semaphore> mChainSemaphoresList = new ArrayList<>();
 
     //we need in total of 6 semaphores for the finals out 6 places
-    public static final Semaphore[] mOutChainSemaphoresArray = {
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1)
-    };
+    public static final List<Semaphore> mOutChainSemaphoresList = new ArrayList<>();
 
+    //semaphores for protecting the counter of the waiting student in each books
     public static final Semaphore mStudentCounterMutex = new Semaphore(1),
             mProfessorCounterMutex = new Semaphore(1);
 
-
-
+    //a semaphore for the entry place
     public static final Semaphore mEntrySemaphore = new Semaphore(1);
 
+    // a semaphore for getting the user book mutually
     public static final Semaphore mCurrentBookSemaphore = new Semaphore(1);
 
     //hash maps to see the available position in the Import Chain, Table, waiting sits and The out Chain
@@ -113,8 +100,10 @@ public class Main extends Application {
             mChainSemaphore = new Semaphore(4),
             mImportSemaphore = new Semaphore(5);
 
+    private static final CheckBox mRandomBookCheckBox = new CheckBox();
+
     /**
-     * the start method of the application
+     * the start method of the application , it must be include ofr using JavaFX
      *
      * @param stage
      * @throws Exception
@@ -127,6 +116,9 @@ public class Main extends Application {
 
         //the observable array list that holding the books
         mBooksObservableList = FXCollections.observableArrayList(BooksProvider.getBooksList());
+
+        //initialising the list of the chain semaphores
+        initChainAndWaitingSemaphores();
 
         //initialization of the mBooksObservableList map and their semaphores
         initBooksMap(1);
@@ -159,6 +151,21 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
 
+    }
+
+    /**
+     * method for simple initialization of the list of semaphores
+     */
+    private void initChainAndWaitingSemaphores() {
+
+        //initialising the list of the chain semaphores
+        for (int i = 0; i < 4; i++) {
+            mChainSemaphoresList.add(new Semaphore(1));
+        }
+
+        for (int i = 0; i < 6; i++) {
+            mOutChainSemaphoresList.add(new Semaphore(1));
+        }
     }
 
     /**
@@ -235,7 +242,6 @@ public class Main extends Application {
     /*
      * initializing the choices boxes with the Books
      */
-        System.out.println(mBooksObservableList.size());
         ChoiceBox<String> mBooksStudentChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksProfessorChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksRandomChoiceBox = new ChoiceBox<>(mBooksObservableList);
@@ -321,7 +327,7 @@ public class Main extends Application {
 
         mAddStudentButton.setOnMouseClicked(e -> {
 
-
+            //after clicking with the mouse a new Student Thread will be started
             try {
                 mCurrentBookSemaphore.acquire();
                 new Student(mCurrentChoiceStudent).start();
@@ -345,17 +351,36 @@ public class Main extends Application {
         });
 
         mAddRandomButton.setOnMouseClicked(event -> {
-            try {
-                mCurrentBookSemaphore.acquire();
-                new Student("Z").start();
-                new Student("W").start();
-                new Student("N").start();
-                new Student("X").start();
-                new Student("U").start();
-                mCurrentBookSemaphore.release();
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
+            //if the check box in of the random book is checked we take the value of the book from there
+            if (mRandomBookCheckBox.isSelected()) {
+                try {
+                    mCurrentBookSemaphore.acquire();
+                    new Student(mCurrentChoiceRandom).start();
+                    new Student(mCurrentChoiceRandom).start();
+                    new Student(mCurrentChoiceRandom).start();
+                    new Student(mCurrentChoiceRandom).start();
+                    new Student(mCurrentChoiceRandom).start();
+                    mCurrentBookSemaphore.release();
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            } else {
+
+                //else we give them randomly books to read
+                try {
+                    mCurrentBookSemaphore.acquire();
+                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    mCurrentBookSemaphore.release();
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
             }
+
+
         });
 
         //adding button to the root node

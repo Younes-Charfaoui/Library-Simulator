@@ -39,8 +39,9 @@ public final class CoordinatesProvider {
     //list of all Places of the Returning position
     private static final List<Point2D> listOfReturningPlaces = new ArrayList<>();
 
-    /*
-     * initialization of the lists
+    /**
+     * initialising the list of the chain semaphores
+     *
      */
     static {
         listOfEmployeesPlaces.add(new Point2D(393, 16 + 4));
@@ -71,7 +72,7 @@ public final class CoordinatesProvider {
         listOfOutChainPlaces.add(new Point2D(245, 323));
         listOfOutChainPlaces.add(new Point2D(163, 358));
         listOfOutChainPlaces.add(new Point2D(163, 461));
-        listOfOutChainPlaces.add(new Point2D(163, 565 + 110));
+        listOfOutChainPlaces.add(new Point2D(163, 675 ));
 
         listOfTablePlaces.add(new Point2D(587, 401));
         listOfTablePlaces.add(new Point2D(587, 483));
@@ -95,7 +96,6 @@ public final class CoordinatesProvider {
      *
      * @return
      */
-
 
     public static List<Point2D> getListOfWaitingPlaces() {
         return listOfWaitingPlaces;
