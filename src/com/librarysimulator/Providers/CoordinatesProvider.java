@@ -39,16 +39,29 @@ public final class CoordinatesProvider {
     //list of all Places of the Returning position
     private static final List<Point2D> listOfReturningPlaces = new ArrayList<>();
 
+    //list fo all the coordinates for the position of labels in the Table
+    private static final List<Point2D> listOfLabelCoordinates = new ArrayList<>();
+
+    public static List<Point2D> getListOfLabelCoordinates() {
+        return listOfLabelCoordinates;
+    }
+
+    public static List<Point2D> getListOfLabelCoordinatesChairs() {
+        return listOfLabelCoordinatesChairs;
+    }
+
+    //list for all the coordinates for the position of labels in the Waiting Chairs
+    private static final List<Point2D> listOfLabelCoordinatesChairs = new ArrayList<>();
     /**
      * initialising the list of the chain semaphores
-     *
      */
     static {
-        listOfEmployeesPlaces.add(new Point2D(393, 16 + 4));
-        listOfEmployeesPlaces.add(new Point2D(455, 16 + 4));
-        listOfEmployeesPlaces.add(new Point2D(516, 10 + 4));
-        listOfEmployeesPlaces.add(new Point2D(578, 16 + 4));
-        listOfEmployeesPlaces.add(new Point2D(640, 16 + 4));
+
+        listOfEmployeesPlaces.add(new Point2D(393, 20));
+        listOfEmployeesPlaces.add(new Point2D(455, 20));
+        listOfEmployeesPlaces.add(new Point2D(516, 14));
+        listOfEmployeesPlaces.add(new Point2D(578, 20));
+        listOfEmployeesPlaces.add(new Point2D(640, 20));
         listOfEmployeesPlaces.add(new Point2D(280, 452));
         listOfEmployeesPlaces.add(new Point2D(280, 556));
 
@@ -72,7 +85,21 @@ public final class CoordinatesProvider {
         listOfOutChainPlaces.add(new Point2D(245, 323));
         listOfOutChainPlaces.add(new Point2D(163, 358));
         listOfOutChainPlaces.add(new Point2D(163, 461));
+        listOfOutChainPlaces.add(new Point2D(163, 565 ));
         listOfOutChainPlaces.add(new Point2D(163, 675 ));
+
+        listOfLabelCoordinates.add(new Point2D(568,376));
+        listOfLabelCoordinates.add(new Point2D(568,550));
+        listOfLabelCoordinates.add(new Point2D(681,640));
+        listOfLabelCoordinates.add(new Point2D(753,640));
+        listOfLabelCoordinates.add(new Point2D(828,640));
+        listOfLabelCoordinates.add(new Point2D(902,640));
+        listOfLabelCoordinates.add(new Point2D(1012,548));
+        listOfLabelCoordinates.add(new Point2D(1012,350));
+        listOfLabelCoordinates.add(new Point2D(900,278));
+        listOfLabelCoordinates.add(new Point2D(830,278));
+        listOfLabelCoordinates.add(new Point2D(755,278));
+        listOfLabelCoordinates.add(new Point2D(681,278));
 
         listOfTablePlaces.add(new Point2D(587, 401));
         listOfTablePlaces.add(new Point2D(587, 483));
@@ -82,13 +109,17 @@ public final class CoordinatesProvider {
         listOfTablePlaces.add(new Point2D(921, 571));
         listOfTablePlaces.add(new Point2D(1032, 483));
         listOfTablePlaces.add(new Point2D(1032, 387));
-        listOfTablePlaces.add(new Point2D(700, 310));
-        listOfTablePlaces.add(new Point2D(786, 310));
-        listOfTablePlaces.add(new Point2D(846, 310));
         listOfTablePlaces.add(new Point2D(920, 310));
+        listOfTablePlaces.add(new Point2D(846, 310));
+        listOfTablePlaces.add(new Point2D(768, 310));
+        listOfTablePlaces.add(new Point2D(700, 310));
 
         listOfReturningPlaces.add(new Point2D(415, 567));
         listOfReturningPlaces.add(new Point2D(415, 452));
+
+        listOfLabelCoordinatesChairs.add(new Point2D(827,151));
+        listOfLabelCoordinatesChairs.add(new Point2D(906,151));
+        listOfLabelCoordinatesChairs.add(new Point2D(986,151));
     }
 
     /**

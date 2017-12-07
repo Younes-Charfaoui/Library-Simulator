@@ -10,10 +10,12 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,6 +39,10 @@ public class Main extends Application {
     public static final int DURATION_ANIMATION = 1000;
     public static final int DURATION_IMPORTING = 1000;
     public static final int DURATION_RETURNING = 1000;
+
+    //a hash map for storing the label and their position relatively to position of student
+    public static final List<Label> mBooksLabelList = new ArrayList<>();
+    public static final List<Label> mBooksLabelListWaiting = new ArrayList<>();
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
@@ -127,6 +133,9 @@ public class Main extends Application {
         // in the Waiting , Import and Table places
         initHashMaps();
 
+        //initializing the label position and their specifications
+        initLabelMap();
+
         //creating , setting and adding the choice boxes and the check box to the layout
         setupChoiceBoxesAndCheckBox();
 
@@ -150,6 +159,33 @@ public class Main extends Application {
         stage.setScene(mainScene);
         stage.setResizable(false);
         stage.show();
+
+    }
+
+    private void initLabelMap() {
+        //a label object to put in the maps
+
+        for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinates().size(); i++) {
+            Label label = new Label();
+            label.setPrefSize(77, 20);
+            label.setAlignment(Pos.CENTER);
+            label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinates().get(i).getX());
+            label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinates().get(i).getY());
+            mBooksLabelList.add(label);
+        }
+
+        for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinatesChairs().size(); i++) {
+            Label label = new Label();
+            label.setPrefSize(77, 20);
+            label.setAlignment(Pos.CENTER);
+
+            label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinatesChairs().get(i).getX());
+            label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinatesChairs().get(i).getY());
+            mBooksLabelListWaiting.add(label);
+        }
+
+        mRoot.getChildren().addAll(mBooksLabelList);
+        mRoot.getChildren().addAll(mBooksLabelListWaiting);
 
     }
 

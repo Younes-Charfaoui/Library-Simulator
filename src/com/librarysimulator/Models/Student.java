@@ -29,21 +29,22 @@ public class Student extends Thread {
     private static final double INITIAL_Y = CoordinatesProvider.getInitialPoint().getY();
 
 
+    //the run method in which the cycle of the student in this library
     @Override
     public void run() {
 
-        //instance of the Image Utilities to create image for the student
-        ImagesUtilities mImagesCreator = new ImagesUtilities();
-
-        //an inner semaphore that we will use to play animation one by one for each thread
-        Semaphore extraSemaphore = new Semaphore(0);
-
-        //a variable to hold the book of the current student to read
-        String book = null;
-
-        //the image View
-        ImageView student = null;
         try {
+            //instance of the Image Utilities to create image for the student
+            ImagesUtilities mImagesCreator = new ImagesUtilities();
+
+            //an inner semaphore that we will use to play animation one by one for each thread
+            Semaphore extraSemaphore = new Semaphore(0);
+
+            //a variable to hold the book of the current student to read
+            String book;
+
+            //the image View in which the student will be display in
+
 
             mCurrentBookSemaphore.acquire();
             book = this.book;
@@ -57,35 +58,26 @@ public class Student extends Thread {
 
             //creating a new Student and setting it's parameters and adding it to the scene
             String imageName = String.valueOf(random.nextInt(16) + 1) + ".png";
-            student = mImagesCreator.createImageViewOfStudent(imageName);
+            ImageView student = mImagesCreator.createImageViewOfStudent(imageName);
 
             //adding the student to the Initial points
             student.setLayoutX(INITIAL_X);
             student.setLayoutY(INITIAL_Y);
 
-            //reference to the image of the student to add it tto the scene
-            ImageView finalStudent = student;
-
             //adding the student imageView to the scene in the main Thread
-            Platform.runLater(() -> mRoot.getChildren().add(finalStudent));
+            Platform.runLater(() -> mRoot.getChildren().add(student));
 
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
+            /**
+             * defining transition that the Student will passe throw along his lifecycle
+             */
 
-        /**
-         * defining transition that the Student will passe throw along his lifecycle
-         */
-
-        //from the initial points to the First place
-        TranslateTransition transitionAnimation = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
-        transitionAnimation.setFromX(0);
-        transitionAnimation.setFromY(0);
-        transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - INITIAL_X);
-        transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - INITIAL_Y);
-        transitionAnimation.setOnFinished(event -> extraSemaphore.release());
-
-        try {
+            //from the initial points to the First place
+            TranslateTransition transitionAnimation = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
+            transitionAnimation.setFromX(0);
+            transitionAnimation.setFromY(0);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(3).getX() - INITIAL_X);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(3).getY() - INITIAL_Y);
+            transitionAnimation.setOnFinished(event -> extraSemaphore.release());
 
             /**
              * now the execution of the transition in way that two thread cannot access to
@@ -301,7 +293,7 @@ public class Student extends Thread {
                 mAvailableWaitingMutex.release();
 
                 //translation to the empty place in the waiting chair
-                if(importPoint != null  && waitingPoint != null){
+                if (importPoint != null && waitingPoint != null) {
                     transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
                     transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
                     transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
@@ -309,6 +301,9 @@ public class Student extends Thread {
                 }
                 Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
+                //setting the value of the corresponding label to the book
+                int finalIndexInTheWaitingChairs = indexInTheWaitingChairs;
+                Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(book));
 
                 //also we have to set the pace in the hash ap to false to indicate that the place is empty
                 mAvailableImportMutex.acquire();
@@ -342,8 +337,12 @@ public class Student extends Thread {
                     transitionAnimation.setToY(tablePoint.getY() - INITIAL_Y);
                 }
                 Platform.runLater(transitionAnimation::play);
+                //setting the value of the corresponding label to the book
+                Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(""));
                 extraSemaphore.acquire();
-
+                //setting the value of the corresponding label to the book
+                int finalIndexInTable = indexInTable;
+                Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(book));
                 mTableCounterMutex.acquire();
                 mTableCounter++;
                 mTableCounterMutex.release();
@@ -386,11 +385,15 @@ public class Student extends Thread {
                         mAvailableWaitingMutex.release();
 
                         //translation to the empty place in the waiting chair
-                        transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
-                        transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
-                        transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
-                        transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
+                        if (importPoint != null && waitingPoint != null) {
+                            transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
+                            transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
+                            transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
+                            transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
+                        }
                         Platform.runLater(transitionAnimation::play);
+                        //setting the value of the corresponding label to the book
+                        mBooksLabelListWaiting.get(indexInTheWaitingChairs).setText(book);
                         extraSemaphore.acquire();
 
                         //also we have to set the pace in the hash ap to false to indicate that the place is empty
@@ -419,14 +422,19 @@ public class Student extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        if (tablePoint != null) {
+                        if (tablePoint != null && waitingPoint != null) {
                             transitionAnimation.setFromX(waitingPoint.getX() - INITIAL_X);
                             transitionAnimation.setFromY(waitingPoint.getY() - INITIAL_Y);
                             transitionAnimation.setToX(tablePoint.getX() - INITIAL_X);
                             transitionAnimation.setToY(tablePoint.getY() - INITIAL_Y);
                         }
                         Platform.runLater(transitionAnimation::play);
+                        //setting the value of the corresponding label to the book
+                        mBooksLabelListWaiting.get(indexInTheWaitingChairs).setText("");
                         extraSemaphore.acquire();
+                        //setting the value of the corresponding label to the book
+                        int finalIndexInTable = indexInTable;
+                        Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(book));
 
                         mTableCounterMutex.acquire();
                         mTableCounter++;
@@ -458,14 +466,16 @@ public class Student extends Thread {
                         mAvailableTableMutex.release();
 
                         //create a Translation from the Place where we The Reader is to the Available Place in the table
-                        if (tablePoint != null) {
+                        if (tablePoint != null && importPoint != null) {
                             transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
                             transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
                             transitionAnimation.setToX(tablePoint.getX() - INITIAL_X);
                             transitionAnimation.setToY(tablePoint.getY() - INITIAL_Y);
                         }
-                        transitionAnimation.setOnFinished(event -> extraSemaphore.release());
                         Platform.runLater(transitionAnimation::play);
+                        //setting the value of the corresponding label to the book
+                        int finalIndexInTable = indexInTable;
+                        Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(book));
                         extraSemaphore.acquire();
 
                         mAvailableImportMutex.acquire();
@@ -498,12 +508,16 @@ public class Student extends Thread {
                     mAvailableWaitingMutex.release();
 
                     //translation to the empty place in the waiting chair
-                    transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
-                    transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
-                    transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
-                    transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
-                    transitionAnimation.setOnFinished(event -> extraSemaphore.release());
+                    if(importPoint != null && waitingPoint != null){
+                        transitionAnimation.setFromX(importPoint.getX() - INITIAL_X);
+                        transitionAnimation.setFromY(importPoint.getY() - INITIAL_Y);
+                        transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
+                        transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
+                    }
                     Platform.runLater(transitionAnimation::play);
+                    //setting the value of the corresponding label to the book
+                    int finalIndexInTheWaitingChairs = indexInTheWaitingChairs;
+                    Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(book));
                     extraSemaphore.acquire();
 
                     //also we have to set the pace in the hash ap to false to indicate that the place is empty
@@ -536,15 +550,19 @@ public class Student extends Thread {
                     mAvailableTableMutex.release();
 
                     //create a Translation from the Place where we The Reader is to the Available Place in the table
-                    if (tablePoint != null) {
+                    if (tablePoint != null && waitingPoint != null) {
                         transitionAnimation.setFromX(waitingPoint.getX() - INITIAL_X);
                         transitionAnimation.setFromY(waitingPoint.getY() - INITIAL_Y);
                         transitionAnimation.setToX(tablePoint.getX() - INITIAL_X);
                         transitionAnimation.setToY(tablePoint.getY() - INITIAL_Y);
                     }
                     Platform.runLater(transitionAnimation::play);
+                    Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(""));
                     extraSemaphore.acquire();
 
+                    //setting the value of the corresponding label to the book
+                    int finalIndexInTable = indexInTable;
+                    Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(book));
                     mAvailableWaitingMutex.acquire();
                     mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
                     mAvailableWaitingMutex.release();
@@ -584,6 +602,8 @@ public class Student extends Thread {
 
             //change the value of false in the available places to indicate that it is empty
             mAvailableTableMutex.acquire();
+            int finalIndexInTable1 = indexInTable;
+            Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable1).setText(""));
             mAvailableTablePlaces.put(CoordinatesProvider.getListOfTablePlaces().get(indexInTable), false);
             mAvailableTableMutex.release();
 
@@ -592,7 +612,7 @@ public class Student extends Thread {
             mTableCounterMutex.release();
 
             //now we translate to the empty place
-            if(importPoint != null && waitingPoint != null){
+            if (tablePoint != null && returnPoint != null) {
                 transitionAnimation.setFromX(tablePoint.getX() - INITIAL_X);
                 transitionAnimation.setFromY(tablePoint.getY() - INITIAL_Y);
                 transitionAnimation.setToX(returnPoint.getX() - INITIAL_X);
@@ -617,10 +637,12 @@ public class Student extends Thread {
             mOutChainSemaphoresList.get(0).acquire();
 
             //now we have to translate to the first place in the out chain
-            transitionAnimation.setFromX(returnPoint.getX() - INITIAL_X);
-            transitionAnimation.setFromY(returnPoint.getY() - INITIAL_Y);
-            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - INITIAL_X);
-            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - INITIAL_Y);
+            if (returnPoint != null) {
+                transitionAnimation.setFromX(returnPoint.getX() - INITIAL_X);
+                transitionAnimation.setFromY(returnPoint.getY() - INITIAL_Y);
+                transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - INITIAL_X);
+                transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - INITIAL_Y);
+            }
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
@@ -684,16 +706,16 @@ public class Student extends Thread {
             //and now the final transition out of the scene :D
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - INITIAL_Y);
-            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - INITIAL_X);
-            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - INITIAL_Y);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(6).getX() - INITIAL_X);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(6).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
             mOutChainSemaphoresList.get(5).release();
 
             // at these points our reader is out of the scene
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -11,7 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,24 +75,26 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="278" column="72" lean-forward="false" selection-start-line="278" selection-start-column="72" selection-end-line="278" selection-end-column="72" />
+            <state relative-caret-position="299">
+              <caret line="177" column="36" lean-forward="true" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
               <folding>
                 <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-                <element signature="method#start#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
                 <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+                <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+                <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-                <element signature="e#12825#13200#0" expanded="false" />
-                <element signature="e#13250#13548#0" expanded="false" />
-                <element signature="e#13595#15133#0" expanded="false" />
+                <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+                <element signature="e#14352#14727#0" expanded="false" />
+                <element signature="e#14777#15075#0" expanded="false" />
+                <element signature="e#15122#16660#0" expanded="false" />
                 <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
                 <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -105,11 +106,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
+      <file leaf-file-name="CoordinatesProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
+                <element signature="e#1870#1871#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
+                <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+                <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="287" column="19" lean-forward="true" selection-start-line="287" selection-start-column="19" selection-end-line="287" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="264" column="0" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="145" column="14" lean-forward="true" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
               <folding>
                 <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
                 <element signature="docComment;method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
@@ -124,47 +161,6 @@
                 <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
                 <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
                 <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoordinatesProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-                <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
-                <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -184,6 +180,8 @@
       <find>1000</find>
       <find>h</find>
       <find>Main.</find>
+      <find>null</find>
+      <find>extraSemaphore.release</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -218,11 +216,11 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/Student.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
       </list>
     </option>
   </component>
@@ -271,8 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -323,6 +319,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
@@ -571,9 +569,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2700454" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27382752" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25869894" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -586,6 +582,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -594,6 +591,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -615,30 +613,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/res/Images/Student/2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17043">
-          <caret line="756" column="0" lean-forward="false" selection-start-line="756" selection-start-column="0" selection-end-line="756" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17434">
           <caret line="758" column="1" lean-forward="false" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,15 +627,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -686,7 +666,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -697,7 +676,9 @@
           <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -712,10 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17388">
           <caret line="756" column="0" lean-forward="true" selection-start-line="756" selection-start-column="0" selection-end-line="756" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -723,10 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17434">
           <caret line="758" column="1" lean-forward="true" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,15 +710,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -774,7 +749,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,7 +759,9 @@
           <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -795,10 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17112">
           <caret line="758" column="1" lean-forward="false" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,10 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17043">
           <caret line="756" column="0" lean-forward="true" selection-start-line="756" selection-start-column="0" selection-end-line="756" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,15 +788,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -857,7 +827,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -868,7 +837,9 @@
           <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -878,10 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17434">
           <caret line="758" column="1" lean-forward="false" selection-start-line="758" selection-start-column="1" selection-end-line="758" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,10 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17089">
           <caret line="743" column="53" lean-forward="false" selection-start-line="743" selection-start-column="53" selection-end-line="743" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -903,15 +866,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -940,7 +905,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -951,7 +915,9 @@
           <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -961,10 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17089">
           <caret line="743" column="53" lean-forward="true" selection-start-line="743" selection-start-column="53" selection-end-line="743" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -975,15 +937,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1000,7 +964,9 @@
           <caret line="95" column="7" lean-forward="false" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -1010,10 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16721">
           <caret line="741" column="0" lean-forward="false" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,10 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16629">
           <caret line="738" column="0" lean-forward="false" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,7 +1004,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1058,15 +1015,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1083,7 +1042,9 @@
           <caret line="89" column="7" lean-forward="true" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -1093,10 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,10 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,7 +1082,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1141,15 +1093,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1178,7 +1132,6 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1189,7 +1142,9 @@
           <caret line="89" column="49" lean-forward="false" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
           <folding>
             <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
             <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
           </folding>
         </state>
@@ -1199,10 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,15 +1164,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1236,10 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,15 +1199,17 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1273,10 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1287,22 +1234,39 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
-            <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-5529">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="145" column="14" lean-forward="true" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
           <folding>
             <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
@@ -1317,47 +1281,28 @@
             <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-            <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5529">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13704#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27226#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="278" column="72" lean-forward="false" selection-start-line="278" selection-start-column="72" selection-end-line="278" selection-end-column="72" />
+        <state relative-caret-position="299">
+          <caret line="177" column="36" lean-forward="true" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#12825#13200#0" expanded="false" />
-            <element signature="e#13250#13548#0" expanded="false" />
-            <element signature="e#13595#15133#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="e#14352#14727#0" expanded="false" />
+            <element signature="e#14777#15075#0" expanded="false" />
+            <element signature="e#15122#16660#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1368,25 +1313,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;field#INITIAL_POINT#0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="e#1870#1871#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="initializer##0;class#CoordinatesProvider#0" expanded="false" />
+            <element signature="docComment;method#getListOfWaitingPlaces#0;class#CoordinatesProvider#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328560" expanded="true" signature="37307:37313" ph="{}" />
-          </folding>
+        <state relative-caret-position="276">
+          <caret line="264" column="0" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512597328454" expanded="true" signature="37059:37065" ph="{}" />
-          </folding>
+        <state relative-caret-position="492">
+          <caret line="287" column="19" lean-forward="true" selection-start-line="287" selection-start-column="19" selection-end-line="287" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

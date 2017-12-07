@@ -298,7 +298,7 @@ public class Professor extends Thread {
                 mAvailableWaitingMutex.release();
 
                 //translation to the empty place in the waiting chair
-                if (importPoint != null && waitingPoint != null){
+                if (importPoint != null && waitingPoint != null) {
                     transitionAnimation.setFromX(importPoint.getX() - initialX);
                     transitionAnimation.setFromY(importPoint.getY() - initialY);
                     transitionAnimation.setToX(waitingPoint.getX() - initialX);
@@ -385,7 +385,7 @@ public class Professor extends Thread {
 
                         //translation to the empty place in the waiting chair
 
-                        if (importPoint != null && waitingPoint != null){
+                        if (importPoint != null && waitingPoint != null) {
                             transitionAnimation.setFromX(importPoint.getX() - initialX);
                             transitionAnimation.setFromY(importPoint.getY() - initialY);
                             transitionAnimation.setToX(waitingPoint.getX() - initialX);
@@ -501,7 +501,7 @@ public class Professor extends Thread {
                     mAvailableWaitingMutex.release();
 
                     //translation to the empty place in the waiting chair
-                    if (importPoint != null && waitingPoint != null){
+                    if (importPoint != null && waitingPoint != null) {
                         transitionAnimation.setFromX(importPoint.getX() - initialX);
                         transitionAnimation.setFromY(importPoint.getY() - initialY);
                         transitionAnimation.setToX(waitingPoint.getX() - initialX);
@@ -598,7 +598,7 @@ public class Professor extends Thread {
             mTableCounterMutex.release();
 
             //now we translate to the empty place
-            if(tablePoint != null && returnPoint!= null){
+            if (tablePoint != null && returnPoint != null) {
                 transitionAnimation.setFromX(tablePoint.getX() - initialX);
                 transitionAnimation.setFromY(tablePoint.getY() - initialY);
                 transitionAnimation.setToX(returnPoint.getX() - initialX);
@@ -624,7 +624,7 @@ public class Professor extends Thread {
 
 
             //now we have to translate to the first place in the out chain
-            if(returnPoint != null){
+            if (returnPoint != null) {
                 transitionAnimation.setFromX(returnPoint.getX() - initialX);
                 transitionAnimation.setFromY(returnPoint.getY() - initialY);
                 transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - initialX);
@@ -700,8 +700,8 @@ public class Professor extends Thread {
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
-            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - initialX);
-            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - initialY);
+            transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(6).getX() - initialX);
+            transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(6).getY() - initialY);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
