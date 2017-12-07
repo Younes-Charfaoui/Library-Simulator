@@ -306,6 +306,9 @@ public class Professor extends Thread {
                 }
                 Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
+                int finalIndexInTheWaitingChairs = indexInTheWaitingChairs;
+                String finalBook = book;
+                Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(finalBook));
 
                 //also we have to set the pace in the hash ap to false to indicate that the place is empty
                 mAvailableImportMutex.acquire();
@@ -341,6 +344,7 @@ public class Professor extends Thread {
                 }
                 Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
+                Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(""));
 
                 mTableCounterMutex.acquire();
                 mTableCounter++;
@@ -394,6 +398,9 @@ public class Professor extends Thread {
                         Platform.runLater(transitionAnimation::play);
                         extraSemaphore.acquire();
 
+                        int finalIndexInTheWaitingChairs1 = indexInTheWaitingChairs;
+                        String finalBook1 = book;
+                        Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs1).setText(finalBook1));
                         //also we have to set the pace in the hash ap to false to indicate that the place is empty
                         mAvailableImportMutex.acquire();
                         mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
@@ -428,7 +435,14 @@ public class Professor extends Thread {
                             transitionAnimation.setToY(tablePoint.getY() - initialY);
                         }
                         Platform.runLater(transitionAnimation::play);
+                        int finalIndexInTheWaitingChairs2 = indexInTheWaitingChairs;
+                        Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs2).setText(""));
                         extraSemaphore.acquire();
+                        //setting the value of the corresponding label to the book
+                        int finalIndexInTable = indexInTable;
+                        String finalBook2 = book;
+                        Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(finalBook2));
+
 
                         mTableCounterMutex.acquire();
                         mTableCounter++;
@@ -468,6 +482,9 @@ public class Professor extends Thread {
                             transitionAnimation.setToY(tablePoint.getY() - initialY);
                         }
                         Platform.runLater(transitionAnimation::play);
+                        int finalIndexInTable = indexInTable;
+                        String finalBook3 = book;
+                        Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(finalBook3));
                         extraSemaphore.acquire();
 
                         mAvailableImportMutex.acquire();
@@ -508,6 +525,10 @@ public class Professor extends Thread {
                         transitionAnimation.setToY(waitingPoint.getY() - initialY);
                     }
                     Platform.runLater(transitionAnimation::play);
+                    int finalIndexInTheWaitingChairs = indexInTheWaitingChairs;
+                    String finalBook4 = book;
+                    Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(finalBook4));
+
                     extraSemaphore.acquire();
 
                     //also we have to set the pace in the hash ap to false to indicate that the place is empty
@@ -549,7 +570,13 @@ public class Professor extends Thread {
                         transitionAnimation.setToY(tablePoint.getY() - initialY);
                     }
                     Platform.runLater(transitionAnimation::play);
+                    Platform.runLater(transitionAnimation::play);
+                    Platform.runLater(() -> mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs).setText(""));
                     extraSemaphore.acquire();
+                    int finalIndexInTable = indexInTable;
+                    String finalBook5 = book;
+                    Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(finalBook5));
+
 
                     mAvailableWaitingMutex.acquire();
                     mAvailableWaitingPlaces.put(CoordinatesProvider.getListOfWaitingPlaces().get(indexInTheWaitingChairs), false);
@@ -590,6 +617,8 @@ public class Professor extends Thread {
 
             //change the value of false in the available places to indicate that it is empty
             mAvailableTableMutex.acquire();
+            int finalIndexInTable1 = indexInTable;
+            Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable1).setText(""));
             mAvailableTablePlaces.put(CoordinatesProvider.getListOfTablePlaces().get(indexInTable), false);
             mAvailableTableMutex.release();
 
@@ -612,11 +641,13 @@ public class Professor extends Thread {
 
             //simulating the return time
             Thread.sleep(1000);
-
-            if (mProfessorCounterMap.get(book) == 0 && mStudentCounterMap.get(book) > 0) {
+            mProfessorCounterMutex.acquire();
+            mStudentCounterMutex.acquire();
+            if (mProfessorCounterMap.get(book) ==  0 && mStudentCounterMap.get(book) > 0) {
                 mPriorityBooksSemaphoresMap.get(book).release();
             }
-
+            mStudentCounterMutex.release();
+            mProfessorCounterMutex.release();
             mBooksSemaphoresMap.get(book).release();
 
 

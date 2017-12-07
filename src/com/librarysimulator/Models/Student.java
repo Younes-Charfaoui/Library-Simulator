@@ -227,7 +227,6 @@ public class Student extends Thread {
             mStudentCounterMutex.release();
 
             mPriorityBooksSemaphoresMap.get(book).acquire();
-
             mBooksSemaphoresMap.get(book).acquire();
 
             mStudentCounterMutex.acquire();
@@ -393,7 +392,8 @@ public class Student extends Thread {
                         }
                         Platform.runLater(transitionAnimation::play);
                         //setting the value of the corresponding label to the book
-                        mBooksLabelListWaiting.get(indexInTheWaitingChairs).setText(book);
+                        int finalIndexInTheWaitingChairs1 = indexInTheWaitingChairs;
+                        Platform.runLater(()->mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs1).setText(book));
                         extraSemaphore.acquire();
 
                         //also we have to set the pace in the hash ap to false to indicate that the place is empty
@@ -430,7 +430,8 @@ public class Student extends Thread {
                         }
                         Platform.runLater(transitionAnimation::play);
                         //setting the value of the corresponding label to the book
-                        mBooksLabelListWaiting.get(indexInTheWaitingChairs).setText("");
+                        int finalIndexInTheWaitingChairs2 = indexInTheWaitingChairs;
+                        Platform.runLater(()->mBooksLabelListWaiting.get(finalIndexInTheWaitingChairs2).setText(""));
                         extraSemaphore.acquire();
                         //setting the value of the corresponding label to the book
                         int finalIndexInTable = indexInTable;
