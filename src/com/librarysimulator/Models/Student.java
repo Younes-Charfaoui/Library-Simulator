@@ -601,6 +601,16 @@ public class Student extends Thread {
             }
             mAvailableReturnMutex.release();
 
+
+            //now we translate to the empty place
+            if (tablePoint != null && returnPoint != null) {
+                transitionAnimation.setFromX(tablePoint.getX() - INITIAL_X);
+                transitionAnimation.setFromY(tablePoint.getY() - INITIAL_Y);
+                transitionAnimation.setToX(returnPoint.getX() - INITIAL_X);
+                transitionAnimation.setToY(returnPoint.getY() - INITIAL_Y);
+            }
+            Platform.runLater(transitionAnimation::play);
+
             //change the value of false in the available places to indicate that it is empty
             mAvailableTableMutex.acquire();
             int finalIndexInTable1 = indexInTable;
@@ -612,14 +622,6 @@ public class Student extends Thread {
             mTableCounter--;
             mTableCounterMutex.release();
 
-            //now we translate to the empty place
-            if (tablePoint != null && returnPoint != null) {
-                transitionAnimation.setFromX(tablePoint.getX() - INITIAL_X);
-                transitionAnimation.setFromY(tablePoint.getY() - INITIAL_Y);
-                transitionAnimation.setToX(returnPoint.getX() - INITIAL_X);
-                transitionAnimation.setToY(returnPoint.getY() - INITIAL_Y);
-            }
-            Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
             //and release the Table Semaphores
