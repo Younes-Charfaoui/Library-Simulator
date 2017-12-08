@@ -106,7 +106,7 @@ public class Main extends Application {
             mChainSemaphore = new Semaphore(4),
             mImportSemaphore = new Semaphore(5);
 
-    private static final CheckBox mRandomBookCheckBox = new CheckBox();
+    private static CheckBox mRandomBookCheckBox = new CheckBox();
 
     /**
      * the start method of the application , it must be include ofr using JavaFX
@@ -281,7 +281,7 @@ public class Main extends Application {
         ChoiceBox<String> mBooksStudentChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksProfessorChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksRandomChoiceBox = new ChoiceBox<>(mBooksObservableList);
-        CheckBox mRandomBookCheckBox = new CheckBox();
+        mRandomBookCheckBox = new CheckBox();
 
         //positioning the choice boxes
         mBooksStudentChoiceBox.setLayoutX(40);
@@ -394,25 +394,25 @@ public class Main extends Application {
                     new Student(mCurrentChoiceRandom).start();
                     new Student(mCurrentChoiceRandom).start();
                     new Student(mCurrentChoiceRandom).start();
-                    new Student(mCurrentChoiceRandom).start();
-                    new Student(mCurrentChoiceRandom).start();
+                    new Professor(mCurrentChoiceRandom).start();
+                    new Professor(mCurrentChoiceRandom).start();
                     mCurrentBookSemaphore.release();
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             } else {
 
                 //else we give them randomly books to read
                 try {
                     mCurrentBookSemaphore.acquire();
-                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(26))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(26))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(26))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     mCurrentBookSemaphore.release();
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
 
