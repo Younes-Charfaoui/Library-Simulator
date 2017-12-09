@@ -9,7 +9,7 @@ public final class CoordinatesProvider {
 
     /**
      * @definition this class have the role of providing most of important
-     * points in the scene with X and Y coordinate to to several animations
+     * points in the scene with X and Y coordinate for several animations
      */
 
     private static final Point2D INITIAL_POINT = new Point2D(23, 680);
@@ -42,15 +42,8 @@ public final class CoordinatesProvider {
     //list fo all the coordinates for the position of labels in the Table
     private static final List<Point2D> listOfLabelCoordinates = new ArrayList<>();
 
-    public static List<Point2D> getListOfLabelCoordinates() {
-        return listOfLabelCoordinates;
-    }
-
-    public static List<Point2D> getListOfLabelCoordinatesChairs() {
-        return listOfLabelCoordinatesChairs;
-    }
-
     //list for all the coordinates for the position of labels in the Waiting Chairs
+
     private static final List<Point2D> listOfLabelCoordinatesChairs = new ArrayList<>();
     /**
      * initialising the list of the chain semaphores
@@ -121,7 +114,6 @@ public final class CoordinatesProvider {
         listOfLabelCoordinatesChairs.add(new Point2D(906,151));
         listOfLabelCoordinatesChairs.add(new Point2D(986,151));
     }
-
     /**
      * getters of lists and variables in this class
      *
@@ -130,6 +122,14 @@ public final class CoordinatesProvider {
 
     public static List<Point2D> getListOfWaitingPlaces() {
         return listOfWaitingPlaces;
+    }
+
+    public static List<Point2D> getListOfLabelCoordinates() {
+        return listOfLabelCoordinates;
+    }
+
+    public static List<Point2D> getListOfLabelCoordinatesChairs() {
+        return listOfLabelCoordinatesChairs;
     }
 
     public static List<Point2D> getListOfReturningPlaces() {

@@ -30,8 +30,8 @@ public class Main extends Application {
     /**
      * @definition this class is the main class of the simulator,
      * it extends the Application class from the JavaFX package
-     * and set all hte GUI and the Interaction and also managing the
-     * threads and the Mutual exclusion of the critical sections
+     * and set all the GUI and the Interaction and also starting the threads
+     * for the student or Professor or starting 5 randomly
      */
 
     //an constant for the duration of the reading ,animation and others
@@ -43,6 +43,9 @@ public class Main extends Application {
     //a hash map for storing the label and their position relatively to position of student
     public static final List<Label> mBooksLabelList = new ArrayList<>();
     public static final List<Label> mBooksLabelListWaiting = new ArrayList<>();
+
+    //number of copies in each book
+    private static final int NUMBER_OF_BOOKS = 1;
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
@@ -97,15 +100,14 @@ public class Main extends Application {
             mAvailableWaitingMutex = new Semaphore(1),
             mAvailableReturnMutex = new Semaphore(1);
 
-    //a mChainSemaphore semaphores in which if new thread come in , can't execute and the mChainSemaphore is full
-
-    //semaphores for protecting some counters and the maps
+    //semaphores for for the main places: chain , import, Table , waiting chairs and out chain
     public static final Semaphore mTableSemaphore = new Semaphore(12),
             mWaitingSemaphore = new Semaphore(3),
             mReturningSemaphore = new Semaphore(2),
             mChainSemaphore = new Semaphore(4),
             mImportSemaphore = new Semaphore(5);
 
+    //a check box for the random button to add student with same book or not
     private static CheckBox mRandomBookCheckBox = new CheckBox();
 
     /**
@@ -127,7 +129,7 @@ public class Main extends Application {
         initChainAndWaitingSemaphores();
 
         //initialization of the mBooksObservableList map and their semaphores
-        initBooksMap(1);
+        initBooksMap(NUMBER_OF_BOOKS);
 
         //initialization of the hash maps which contains the Position of available places
         // in the Waiting , Import and Table places
@@ -162,8 +164,10 @@ public class Main extends Application {
 
     }
 
+    /**
+     * method for initializing the labels and their specification
+     */
     private void initLabelMap() {
-        //a label object to put in the maps
 
         for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinates().size(); i++) {
             Label label = new Label();
