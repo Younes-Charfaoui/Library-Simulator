@@ -35,7 +35,7 @@ public class Main extends Application {
      */
 
     //an constant for the duration of the reading ,animation and others
-    public static final int DURATION_READING = 5000;
+    public static final int DURATION_READING = 45000;
     public static final int DURATION_ANIMATION = 1000;
     public static final int DURATION_IMPORTING = 1000;
     public static final int DURATION_RETURNING = 1000;

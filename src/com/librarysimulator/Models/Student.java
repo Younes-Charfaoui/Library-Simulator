@@ -275,6 +275,7 @@ public class Student extends Thread {
 
             //if there is 3 people in the waiting chair we must block
             if (mWaitingCounter >= 3) {
+
                 //we release the mutex semaphore and acquire the Waiting one
                 mWaitingCounterMutex.release();
 
@@ -374,7 +375,7 @@ public class Student extends Thread {
                 if (mWaitingCounter == 0) {
 
                     //release the counter semaphore for the waiting counter
-                    mWaitingCounterMutex.release();
+
 
                     //if it is the case we check if there is empty place in the table
                     mTableCounterMutex.acquire();
@@ -382,7 +383,6 @@ public class Student extends Thread {
                         //if there is no place
                         mTableCounterMutex.release();
                         mWaitingSemaphore.acquire();
-                        mWaitingCounterMutex.acquire();
                         mWaitingCounter++;
                         mWaitingCounterMutex.release();
 
@@ -466,8 +466,6 @@ public class Student extends Thread {
                         mWaitingCounterMutex.release();
                         mWaitingSemaphore.release();
                     } else {
-                        mWaitingCounterMutex.release();
-
                         //that means there is a place in the table
                         mTableSemaphore.acquire();
 
@@ -504,18 +502,16 @@ public class Student extends Thread {
 
                         mImportSemaphore.release();
 
-                        mTableCounterMutex.acquire();
+
                         mTableCounter++;
                         mTableCounterMutex.release();
-
+                        mWaitingCounterMutex.release();
                     }
                 } else {
-                    mWaitingCounterMutex.release();
 
                     //that means there only one or two in the waiting chairs
                     mWaitingSemaphore.acquire();
 
-                    mWaitingCounterMutex.acquire();
                     mWaitingCounter++;
                     mWaitingCounterMutex.release();
 

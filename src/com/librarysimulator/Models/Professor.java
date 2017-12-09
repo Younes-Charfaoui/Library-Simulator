@@ -272,10 +272,12 @@ public class Professor extends Thread {
             Point2D tablePoint = null;
             int indexInTable = -1;
 
+            //acquiring the counter waiting semaphores to check the numbers of waiting their
             mWaitingCounterMutex.acquire();
 
             //if there is 3 people in the waiting chair we must block
             if (mWaitingCounter >= 3) {
+
                 //we release the mutex semaphore and acquire the Waiting one
                 mWaitingCounterMutex.release();
 
@@ -375,7 +377,7 @@ public class Professor extends Thread {
                 if (mWaitingCounter == 0) {
 
                     //release the counter semaphore for the waiting counter
-                    mWaitingCounterMutex.release();
+
 
                     //if it is the case we check if there is empty place in the table
                     mTableCounterMutex.acquire();
@@ -383,7 +385,6 @@ public class Professor extends Thread {
                         //if there is no place
                         mTableCounterMutex.release();
                         mWaitingSemaphore.acquire();
-                        mWaitingCounterMutex.acquire();
                         mWaitingCounter++;
                         mWaitingCounterMutex.release();
 
@@ -467,8 +468,6 @@ public class Professor extends Thread {
                         mWaitingCounterMutex.release();
                         mWaitingSemaphore.release();
                     } else {
-                        mWaitingCounterMutex.release();
-
                         //that means there is a place in the table
                         mTableSemaphore.acquire();
 
@@ -498,25 +497,23 @@ public class Professor extends Thread {
                         Platform.runLater(() -> mBooksLabelList.get(finalIndexInTable).setText(book));
                         extraSemaphore.acquire();
 
-                        //changing the place to falseto indicates tha it it empty
+                        //changing the place to false to indicates tha it it empty
                         mAvailableImportMutex.acquire();
                         mAvailableImportPlaces.put(CoordinatesProvider.getListOfImportPlaces().get(indexInImportChain), false);
                         mAvailableImportMutex.release();
 
                         mImportSemaphore.release();
 
-                        mTableCounterMutex.acquire();
+
                         mTableCounter++;
                         mTableCounterMutex.release();
-
+                        mWaitingCounterMutex.release();
                     }
                 } else {
-                    mWaitingCounterMutex.release();
 
                     //that means there only one or two in the waiting chairs
                     mWaitingSemaphore.acquire();
 
-                    mWaitingCounterMutex.acquire();
                     mWaitingCounter++;
                     mWaitingCounterMutex.release();
 
@@ -642,7 +639,7 @@ public class Professor extends Thread {
             mAvailableTablePlaces.put(CoordinatesProvider.getListOfTablePlaces().get(indexInTable), false);
             mAvailableTableMutex.release();
 
-            //decrementing the couter of table, so when a new one come can see the actual value
+            //decrementing the counter of table, so when a new one come can see the actual value
             mTableCounterMutex.acquire();
             mTableCounter--;
             mTableCounterMutex.release();
@@ -652,7 +649,7 @@ public class Professor extends Thread {
             mTableSemaphore.release();
 
             //simulating the return time
-            Thread.sleep(1000);
+            Thread.sleep(DURATION_RETURNING);
 
             /**
              * at this moment the Professor will se if there is another professor waiting
