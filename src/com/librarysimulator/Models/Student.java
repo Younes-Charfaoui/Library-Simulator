@@ -224,10 +224,13 @@ public class Student extends Thread {
 
             //adding one to the counter of student in this book
             mStudentCounterMutex.acquire();
-            int counterEntry = mStudentCounterMap.get(book);
-            counterEntry++;
-            mStudentCounterMap.put(book, counterEntry);
+            mStudentCounterMap.replace(book,mStudentCounterMap.get(book)+1);
+            System.out.println("The Value of The Book: " + book + " is S: " + mStudentCounterMap.get(book));
             mStudentCounterMutex.release();
+
+            mPriorityMapMutex.acquire();
+            mPriorityMap.replace(book,true);
+            mPriorityMapMutex.release();
 
             //acquiring the book by two semaphores to do the priority
             mPriorityBooksSemaphoresMap.get(book).acquire();
@@ -235,9 +238,8 @@ public class Student extends Thread {
 
             //if we get the book so we have to decrement the counter by one in this book
             mStudentCounterMutex.acquire();
-            int counterOut = mStudentCounterMap.get(book);
-            counterOut--;
-            mStudentCounterMap.put(book, counterOut);
+            mStudentCounterMap.replace(book,mStudentCounterMap.get(book)-1);
+            System.out.println("The Value of The Book: " + book + " is S: " + mStudentCounterMap.get(book));
             mStudentCounterMutex.release();
 
             /**
@@ -654,8 +656,14 @@ public class Student extends Thread {
              * waiting he will release the inner and the outer semaphore of the book
              */
             mProfessorCounterMutex.acquire();
+            System.out.println("The Value of The Book: " + book + " is P: " + mProfessorCounterMap.get(book));
             if (mProfessorCounterMap.get(book) == 0) {
                 mPriorityBooksSemaphoresMap.get(book).release();
+                mStudentCounterMutex.acquire();
+                mPriorityMapMutex.acquire();
+                if(mStudentCounterMap.get(book) == 0 ) mPriorityMap.replace(book,false);
+                mPriorityMapMutex.release();
+                mStudentCounterMutex.release();
             }
             mBooksSemaphoresMap.get(book).release();
             mProfessorCounterMutex.release();

@@ -35,10 +35,16 @@ public class Main extends Application {
      */
 
     //an constant for the duration of the reading ,animation and others
-    public static final int DURATION_READING = 45000;
+    public static final int DURATION_READING = 60000;
     public static final int DURATION_ANIMATION = 1000;
     public static final int DURATION_IMPORTING = 1000;
     public static final int DURATION_RETURNING = 1000;
+
+    //a boolean value to indicate the Priority semaphore status
+    public static final HashMap<String , Boolean> mPriorityMap = new HashMap<>();
+
+    //a semaphores to use the previous boolean in mutual exclusion
+    public static final Semaphore mPriorityMapMutex = new Semaphore(1);
 
     //a hash map for storing the label and their position relatively to position of student
     public static final List<Label> mBooksLabelList = new ArrayList<>();
@@ -368,56 +374,49 @@ public class Main extends Application {
         mAddStudentButton.setOnMouseClicked(e -> {
 
             //after clicking with the mouse a new Student Thread will be started
-            try {
-                mCurrentBookSemaphore.acquire();
                 new Student(mCurrentChoiceStudent).start();
-                mCurrentBookSemaphore.release();
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
 
         });
 
         mAddProfessorButton.setOnMouseClicked(e -> {
 
-            try {
-                mCurrentBookSemaphore.acquire();
                 new Professor(mCurrentChoiceProfessor).start();
-                mCurrentBookSemaphore.release();
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
 
         });
 
         mAddRandomButton.setOnMouseClicked(event -> {
             //if the check box in of the random book is checked we take the value of the book from there
             if (mRandomBookCheckBox.isSelected()) {
-                try {
-                    mCurrentBookSemaphore.acquire();
+
                     new Student(mCurrentChoiceRandom).start();
                     new Student(mCurrentChoiceRandom).start();
                     new Student(mCurrentChoiceRandom).start();
                     new Professor(mCurrentChoiceRandom).start();
                     new Professor(mCurrentChoiceRandom).start();
-                    mCurrentBookSemaphore.release();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             } else {
 
                 //else we give them randomly books to read
-                try {
-                    mCurrentBookSemaphore.acquire();
+
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                     new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    mCurrentBookSemaphore.release();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+
+
             }
 
 
@@ -472,7 +471,9 @@ public class Main extends Application {
             mPriorityBooksSemaphoresMap.put(book, new Semaphore(semaphoreValue));
             mStudentCounterMap.put(book, 0);
             mProfessorCounterMap.put(book, 0);
+            mPriorityMap.put(book,false);
         }
+        System.out.println("done");
     }
 
     /**

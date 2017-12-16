@@ -229,17 +229,15 @@ public class Professor extends Thread {
 
             //acquiring the mBook by its semaphore
             mProfessorCounterMutex.acquire();
-            int counterIn = mProfessorCounterMap.get(book);
-            counterIn++;
-            mProfessorCounterMap.put(book, counterIn);
+            mProfessorCounterMap.replace(book, mProfessorCounterMap.get(book) + 1);
+            System.out.println("The Value of The Book: " + book + " is : " + mProfessorCounterMap.get(book));
             mProfessorCounterMutex.release();
 
             mBooksSemaphoresMap.get(book).acquire();
 
             mProfessorCounterMutex.acquire();
-            int counterOut = mProfessorCounterMap.get(book);
-            counterOut--;
-            mProfessorCounterMap.put(book, counterOut);
+            mProfessorCounterMap.replace(book, mProfessorCounterMap.get(book) - 1);
+            System.out.println("The Value of The Book: " + book + " is : " + mProfessorCounterMap.get(book));
             mProfessorCounterMutex.release();
 
             /**
@@ -659,13 +657,16 @@ public class Professor extends Thread {
              */
 
             mProfessorCounterMutex.acquire();
-            mStudentCounterMutex.acquire();
+            mPriorityMapMutex.acquire();
+            System.out.println("The Value of The Book: " + book + " is P: " + mProfessorCounterMap.get(book));
+            System.out.println("The Value of The Book: " + book + " is S: " + mStudentCounterMap.get(book));
 
-            if (mProfessorCounterMap.get(book) == 0 && mStudentCounterMap.get(book) > 0) {
+            if (mProfessorCounterMap.get(book) == 0 && mPriorityMap.get(book)) {
                 mPriorityBooksSemaphoresMap.get(book).release();
             }
 
-            mStudentCounterMutex.release();
+
+            mPriorityMapMutex.release();
             mProfessorCounterMutex.release();
             mBooksSemaphoresMap.get(book).release();
 
