@@ -32,12 +32,12 @@ public class Professor extends Thread {
     private static final double INITIAL_X = CoordinatesProvider.getInitialPoint().getX();
     private static final double INITIAL_Y = CoordinatesProvider.getInitialPoint().getY();
 
-    //the run method in which the cycle of the student in this library
+    //the run method in which the cycle of the Professor in this library
     @Override
     public void run() {
 
         try {
-            //instance of the Image Utilities to create image for the student
+            //instance of the Image Utilities to create image for the Professor
             ImagesUtilities mImagesCreator = new ImagesUtilities();
 
             //an inner semaphore that we will use to play animation one by one for each thread
@@ -51,7 +51,7 @@ public class Professor extends Thread {
             // acquiring the mChainSemaphore semaphores
             mChainSemaphore.acquire();
 
-            //creating a new Student and setting it's parameters and adding it to the scene
+            //creating a new Professor and setting it's parameters and adding it to the scene
             String imageName = String.valueOf(new Random().nextInt(32 - 17) + 17) + ".png";
             professor = mImagesCreator.createImageViewOfProfessor(imageName);
 
@@ -59,11 +59,11 @@ public class Professor extends Thread {
             professor.setLayoutX(INITIAL_X);
             professor.setLayoutY(INITIAL_Y);
 
-            //reference to the image of the student to add it tto the scene
-            ImageView finalStudent = professor;
+            //reference to the image of the Professor to add it tto the scene
+            ImageView finalProfessor = professor;
 
             //adding the professor imageView to the scene in the main Thread
-            Platform.runLater(() -> mRoot.getChildren().add(finalStudent));
+            Platform.runLater(() -> mRoot.getChildren().add(finalProfessor));
             /**
              * defining the Transition with the time, X and Y ; and the Specific Node
              */
@@ -653,13 +653,13 @@ public class Professor extends Thread {
              * at this moment the Professor will se if there is another professor waiting
              * for the same book, if it is the case he will release the inner semaphore
              * for the book , otherwise , if there is no professor waiting and there is
-             * more than one student, the outer will be released
+             * more than one Professor, the outer will be released
              */
 
             mProfessorCounterMutex.acquire();
             mPriorityMapMutex.acquire();
             System.out.println("The Value of The Book: " + book + " is P: " + mProfessorCounterMap.get(book));
-            System.out.println("The Value of The Book: " + book + " is S: " + mStudentCounterMap.get(book));
+            System.out.println("The Value of The Book: " + book + " is S: " + mProfessorCounterMap.get(book));
 
             if (mProfessorCounterMap.get(book) == 0 && mPriorityMap.get(book)) {
                 mPriorityBooksSemaphoresMap.get(book).release();
