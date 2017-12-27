@@ -8,7 +8,7 @@ public final class BooksProvider {
 
     /**
      * @definition
-     * this class has the utilities of providing
+     * this class has the utility of providing
      * books in a Array list which we will use
      * in the future with the Observable List
      */

@@ -8,12 +8,10 @@ public final class ImagesProvider {
 
     /**
      * @definition
-     *
      * this class is providing the names of the images in
      * form of lists , we can access them via the getters
      * or some image for the
      */
-
 
     //list of the names of the professor images
     private static final List<String> listOfProfessor ;
@@ -40,7 +38,6 @@ public final class ImagesProvider {
         }
 
     }
-
 
     /**
      * getters of the lists in this class

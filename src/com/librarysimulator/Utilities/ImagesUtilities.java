@@ -14,7 +14,7 @@ public  class ImagesUtilities {
     /**
      * @definition this class have the methods
      * to create ImageViews for different kind of type: such as student, employees and
-     * professor nad return them as Image Views.
+     * professor and return them as Image Views.
      */
 
     //default constructor

@@ -19,6 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.net.URISyntaxException;
@@ -35,13 +37,13 @@ public class Main extends Application {
      */
 
     //an constant for the duration of the reading ,animation and others
-    public static final int DURATION_READING = 60000;
-    public static final int DURATION_ANIMATION = 1000;
-    public static final int DURATION_IMPORTING = 1000;
-    public static final int DURATION_RETURNING = 1000;
+    public static final int DURATION_READING = 60_000;
+    public static final int DURATION_ANIMATION = 1_000;
+    public static final int DURATION_IMPORTING = 2_000;
+    public static final int DURATION_RETURNING = 3_000;
 
     //a boolean value to indicate the Priority semaphore status
-    public static final HashMap<String , Boolean> mPriorityMap = new HashMap<>();
+    public static final HashMap<String, Boolean> mPriorityMap = new HashMap<>();
 
     //a semaphores to use the previous boolean in mutual exclusion
     public static final Semaphore mPriorityMapMutex = new Semaphore(1);
@@ -49,6 +51,7 @@ public class Main extends Application {
     //a hash map for storing the label and their position relatively to position of student
     public static final List<Label> mBooksLabelList = new ArrayList<>();
     public static final List<Label> mBooksLabelListWaiting = new ArrayList<>();
+    public static final List<Label> mBooksLabelImporting = new ArrayList<>();
 
     //number of copies in each book
     private static final int NUMBER_OF_BOOKS = 1;
@@ -116,6 +119,9 @@ public class Main extends Application {
     //a check box for the random button to add student with same book or not
     private static CheckBox mRandomBookCheckBox = new CheckBox();
 
+    //button of the random creation
+    private Button mAddRandomButton;
+
     /**
      * the start method of the application , it must be include ofr using JavaFX
      *
@@ -175,25 +181,44 @@ public class Main extends Application {
      */
     private void initLabelMap() {
 
-        for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinates().size(); i++) {
+        //initializing the label of the table places
+        for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinatesTable().size(); i++) {
             Label label = new Label();
             label.setPrefSize(77, 20);
             label.setAlignment(Pos.CENTER);
-            label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinates().get(i).getX());
-            label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinates().get(i).getY());
+            label.setId("tableLabel");
+            label.setFont(Font.font(null, 15));
+            label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinatesTable().get(i).getX());
+            label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinatesTable().get(i).getY());
             mBooksLabelList.add(label);
         }
 
+        //initializing the label of the import places
         for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinatesChairs().size(); i++) {
             Label label = new Label();
             label.setPrefSize(77, 20);
             label.setAlignment(Pos.CENTER);
-
+            label.setId("chairsLabel");
+            label.setFont(Font.font(null, 15));
             label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinatesChairs().get(i).getX());
             label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinatesChairs().get(i).getY());
             mBooksLabelListWaiting.add(label);
         }
 
+        //initializing the label of the import places
+        for (int i = 0; i < CoordinatesProvider.getListOfLabelCoordinatesImporting().size(); i++) {
+            Label label = new Label();
+            label.setPrefSize(77, 20);
+            label.setAlignment(Pos.CENTER);
+            label.setFont(Font.font(null, 15));
+            label.setId("importLabel");
+            label.setLayoutX(CoordinatesProvider.getListOfLabelCoordinatesImporting().get(i).getX());
+            label.setLayoutY(CoordinatesProvider.getListOfLabelCoordinatesImporting().get(i).getY());
+            mBooksLabelImporting.add(label);
+        }
+
+        //adding the label to the scene
+        mRoot.getChildren().addAll(mBooksLabelImporting);
         mRoot.getChildren().addAll(mBooksLabelList);
         mRoot.getChildren().addAll(mBooksLabelListWaiting);
 
@@ -285,13 +310,18 @@ public class Main extends Application {
      * the choice boxes and the check box
      */
     private void setupChoiceBoxesAndCheckBox() {
-    /*
-     * initializing the choices boxes with the Books
-     */
+        /*
+         * initializing the choices boxes with the Books
+         */
         ChoiceBox<String> mBooksStudentChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksProfessorChoiceBox = new ChoiceBox<>(mBooksObservableList);
         ChoiceBox<String> mBooksRandomChoiceBox = new ChoiceBox<>(mBooksObservableList);
         mRandomBookCheckBox = new CheckBox();
+
+        //setting the color of the choice boxes
+        mBooksStudentChoiceBox.setStyle("-fx-base: #BA68C8;");
+        mBooksProfessorChoiceBox.setStyle("-fx-base: #90CAF9;");
+        mBooksRandomChoiceBox.setStyle("-fx-base: #69F0AE;");
 
         //positioning the choice boxes
         mBooksStudentChoiceBox.setLayoutX(40);
@@ -343,7 +373,10 @@ public class Main extends Application {
 
         //listener on the check box to enable or disable the Random choice box
         mRandomBookCheckBox.selectedProperty().addListener((observable, oldValue, newValue) ->
-                mBooksRandomChoiceBox.setDisable(!newValue));
+        {
+            mBooksRandomChoiceBox.setDisable(!newValue);
+            mAddRandomButton.setText(newValue ? "Add 5 Readers" : "Add Randomly");
+        });
 
 
         mRoot.getChildren().addAll(mBooksProfessorChoiceBox,
@@ -359,28 +392,33 @@ public class Main extends Application {
         //instantiate buttons and add text to them
         Button mAddProfessorButton = new Button("Add Professor");
         Button mAddStudentButton = new Button("Add Student");
-        Button mAddRandomButton = new Button("Add 5 Randomly");
+        mAddRandomButton = new Button("Add Randomly");
 
         //special method to set buttons
         settingButtons(mAddProfessorButton);
         settingButtons(mAddStudentButton);
         settingButtons(mAddRandomButton);
 
+
         //setting position of each button
         mAddStudentButton.setLayoutY(40);
+        mAddStudentButton.setStyle("-fx-base: #AB47BC;");
+        mAddProfessorButton.setStyle("-fx-base: #64B5F6;");
+        mAddRandomButton.setStyle("-fx-base: #00E676;");
         mAddProfessorButton.setLayoutY(90);
         mAddRandomButton.setLayoutY(140);
 
         mAddStudentButton.setOnMouseClicked(e -> {
 
             //after clicking with the mouse a new Student Thread will be started
-                new Student(mCurrentChoiceStudent).start();
+            new Student(mCurrentChoiceStudent).start();
 
         });
 
         mAddProfessorButton.setOnMouseClicked(e -> {
 
-                new Professor(mCurrentChoiceProfessor).start();
+            //after clicking with the mouse a new professor Thread will be started
+            new Professor(mCurrentChoiceProfessor).start();
 
         });
 
@@ -388,37 +426,37 @@ public class Main extends Application {
             //if the check box in of the random book is checked we take the value of the book from there
             if (mRandomBookCheckBox.isSelected()) {
 
-                    new Student(mCurrentChoiceRandom).start();
-                    new Student(mCurrentChoiceRandom).start();
-                    new Student(mCurrentChoiceRandom).start();
-                    new Professor(mCurrentChoiceRandom).start();
-                    new Professor(mCurrentChoiceRandom).start();
+                new Student(mCurrentChoiceRandom).start();
+                new Student(mCurrentChoiceRandom).start();
+                new Student(mCurrentChoiceRandom).start();
+                new Professor(mCurrentChoiceRandom).start();
+                new Professor(mCurrentChoiceRandom).start();
 
             } else {
 
                 //else we give them randomly books to read
-
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-                    new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
-
-
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
+                new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
             }
-
 
         });
 
@@ -471,9 +509,8 @@ public class Main extends Application {
             mPriorityBooksSemaphoresMap.put(book, new Semaphore(semaphoreValue));
             mStudentCounterMap.put(book, 0);
             mProfessorCounterMap.put(book, 0);
-            mPriorityMap.put(book,false);
+            mPriorityMap.put(book, false);
         }
-        System.out.println("done");
     }
 
     /**

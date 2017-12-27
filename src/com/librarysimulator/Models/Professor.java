@@ -16,7 +16,7 @@ import static com.librarysimulator.Application.Main.*;
 public class Professor extends Thread {
 
     /**
-     * @definition this class id the definition for a proffesor
+     * @definition this class id the definition for a professor
      * life cycle in the library, all this is defined in the run method
      */
 
@@ -33,6 +33,7 @@ public class Professor extends Thread {
     private static final double INITIAL_Y = CoordinatesProvider.getInitialPoint().getY();
 
     //the run method in which the cycle of the Professor in this library
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void run() {
 
@@ -44,7 +45,7 @@ public class Professor extends Thread {
             Semaphore extraSemaphore = new Semaphore(0);
 
             //image view for the professor to animate
-            ImageView professor = null;
+            ImageView professor;
 
             String book = this.mBook;
 
@@ -144,7 +145,7 @@ public class Professor extends Thread {
 
 
             /**
-             * we are now in position to go to the importing place by the entry point
+             * We are now in position to go to the importing place by the entry point
              * so we will first acquire the mImportSemaphore semaphore which have the permits of 5
              * then we will also have to acquire the entry semaphore for the intermediary place
              * and in that moment we will calculate the first empty place in the import mChainSemaphore
@@ -206,6 +207,9 @@ public class Professor extends Thread {
             //realising the mChainSemaphore semaphore for letting someone out to enter in the mChainSemaphore
             mChainSemaphore.release();
 
+            int finalIndexInImportChain = indexInImportChain;
+            Platform.runLater(() -> mBooksLabelImporting.get(finalIndexInImportChain).setText(book));
+
             //realising the entry semaphore for letting the other to access the import mChainSemaphore if there is  place
             mEntrySemaphore.release();
 
@@ -230,14 +234,13 @@ public class Professor extends Thread {
             //acquiring the mBook by its semaphore
             mProfessorCounterMutex.acquire();
             mProfessorCounterMap.replace(book, mProfessorCounterMap.get(book) + 1);
-            System.out.println("The Value of The Book: " + book + " is : " + mProfessorCounterMap.get(book));
             mProfessorCounterMutex.release();
 
             mBooksSemaphoresMap.get(book).acquire();
 
             mProfessorCounterMutex.acquire();
             mProfessorCounterMap.replace(book, mProfessorCounterMap.get(book) - 1);
-            System.out.println("The Value of The Book: " + book + " is : " + mProfessorCounterMap.get(book));
+
             mProfessorCounterMutex.release();
 
             /**
@@ -304,6 +307,7 @@ public class Professor extends Thread {
                     transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
                     transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
                 }
+                Platform.runLater(() -> mBooksLabelImporting.get(finalIndexInImportChain).setText(""));
                 Platform.runLater(transitionAnimation::play);
                 extraSemaphore.acquire();
 
@@ -405,6 +409,7 @@ public class Professor extends Thread {
                             transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
                             transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
                         }
+                        Platform.runLater(() -> mBooksLabelImporting.get(finalIndexInImportChain).setText(""));
                         Platform.runLater(transitionAnimation::play);
 
                         //setting the value of the corresponding label to the mBook
@@ -488,6 +493,7 @@ public class Professor extends Thread {
                             transitionAnimation.setToX(tablePoint.getX() - INITIAL_X);
                             transitionAnimation.setToY(tablePoint.getY() - INITIAL_Y);
                         }
+                        Platform.runLater(() -> mBooksLabelImporting.get(finalIndexInImportChain).setText(""));
                         Platform.runLater(transitionAnimation::play);
 
                         //setting the value of the corresponding label to the mBook
@@ -534,6 +540,7 @@ public class Professor extends Thread {
                         transitionAnimation.setToX(waitingPoint.getX() - INITIAL_X);
                         transitionAnimation.setToY(waitingPoint.getY() - INITIAL_Y);
                     }
+                    Platform.runLater(() -> mBooksLabelImporting.get(finalIndexInImportChain).setText(""));
                     Platform.runLater(transitionAnimation::play);
 
                     //setting the value of the corresponding label to the mBook
@@ -658,8 +665,6 @@ public class Professor extends Thread {
 
             mProfessorCounterMutex.acquire();
             mPriorityMapMutex.acquire();
-            System.out.println("The Value of The Book: " + book + " is P: " + mProfessorCounterMap.get(book));
-            System.out.println("The Value of The Book: " + book + " is S: " + mProfessorCounterMap.get(book));
 
             if (mProfessorCounterMap.get(book) == 0 && mPriorityMap.get(book)) {
                 mPriorityBooksSemaphoresMap.get(book).release();

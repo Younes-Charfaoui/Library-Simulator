@@ -39,14 +39,17 @@ public final class CoordinatesProvider {
     //list of all Places of the Returning position
     private static final List<Point2D> listOfReturningPlaces = new ArrayList<>();
 
-    //list fo all the coordinates for the position of labels in the Table
-    private static final List<Point2D> listOfLabelCoordinates = new ArrayList<>();
+    //list fo all the coordinates for the position of labels in the Table.
+    private static final List<Point2D> listOfLabelCoordinatesTable = new ArrayList<>();
 
-    //list for all the coordinates for the position of labels in the Waiting Chairs
-
+    //list for all the coordinates for the position of labels in the Waiting Chairs.
     private static final List<Point2D> listOfLabelCoordinatesChairs = new ArrayList<>();
+
+    //list for all the coordinates for the position of labels in importing chain.
+    private static final List<Point2D> listOfLabelCoordinatesImporting = new ArrayList<>();
+
     /**
-     * initialising the list of the chain semaphores
+     * initialising the lists with the coordinates
      */
     static {
 
@@ -60,7 +63,7 @@ public final class CoordinatesProvider {
 
         listOfImportPlaces.add(new Point2D(400, 150));
         listOfImportPlaces.add(new Point2D(463, 150));
-        listOfImportPlaces.add(new Point2D(519, 150));
+        listOfImportPlaces.add(new Point2D(525, 150));
         listOfImportPlaces.add(new Point2D(587, 150));
         listOfImportPlaces.add(new Point2D(655, 150));
 
@@ -81,18 +84,18 @@ public final class CoordinatesProvider {
         listOfOutChainPlaces.add(new Point2D(163, 565 ));
         listOfOutChainPlaces.add(new Point2D(163, 675 ));
 
-        listOfLabelCoordinates.add(new Point2D(568,376));
-        listOfLabelCoordinates.add(new Point2D(568,550));
-        listOfLabelCoordinates.add(new Point2D(681,640));
-        listOfLabelCoordinates.add(new Point2D(753,640));
-        listOfLabelCoordinates.add(new Point2D(828,640));
-        listOfLabelCoordinates.add(new Point2D(902,640));
-        listOfLabelCoordinates.add(new Point2D(1012,548));
-        listOfLabelCoordinates.add(new Point2D(1012,350));
-        listOfLabelCoordinates.add(new Point2D(900,278));
-        listOfLabelCoordinates.add(new Point2D(830,278));
-        listOfLabelCoordinates.add(new Point2D(755,278));
-        listOfLabelCoordinates.add(new Point2D(681,278));
+        listOfLabelCoordinatesTable.add(new Point2D(568,376));
+        listOfLabelCoordinatesTable.add(new Point2D(568,550));
+        listOfLabelCoordinatesTable.add(new Point2D(681,640));
+        listOfLabelCoordinatesTable.add(new Point2D(753,640));
+        listOfLabelCoordinatesTable.add(new Point2D(828,640));
+        listOfLabelCoordinatesTable.add(new Point2D(902,640));
+        listOfLabelCoordinatesTable.add(new Point2D(1012,548));
+        listOfLabelCoordinatesTable.add(new Point2D(1012,350));
+        listOfLabelCoordinatesTable.add(new Point2D(900,278));
+        listOfLabelCoordinatesTable.add(new Point2D(830,278));
+        listOfLabelCoordinatesTable.add(new Point2D(755,278));
+        listOfLabelCoordinatesTable.add(new Point2D(681,278));
 
         listOfTablePlaces.add(new Point2D(587, 401));
         listOfTablePlaces.add(new Point2D(587, 483));
@@ -113,10 +116,15 @@ public final class CoordinatesProvider {
         listOfLabelCoordinatesChairs.add(new Point2D(827,151));
         listOfLabelCoordinatesChairs.add(new Point2D(906,151));
         listOfLabelCoordinatesChairs.add(new Point2D(986,151));
+
+        listOfLabelCoordinatesImporting.add(new Point2D(381,229));
+        listOfLabelCoordinatesImporting.add(new Point2D(444,229));
+        listOfLabelCoordinatesImporting.add(new Point2D(506,229));
+        listOfLabelCoordinatesImporting.add(new Point2D(568,229));
+        listOfLabelCoordinatesImporting.add(new Point2D(635,229));
     }
     /**
      * getters of lists and variables in this class
-     *
      * @return
      */
 
@@ -124,8 +132,8 @@ public final class CoordinatesProvider {
         return listOfWaitingPlaces;
     }
 
-    public static List<Point2D> getListOfLabelCoordinates() {
-        return listOfLabelCoordinates;
+    public static List<Point2D> getListOfLabelCoordinatesTable() {
+        return listOfLabelCoordinatesTable;
     }
 
     public static List<Point2D> getListOfLabelCoordinatesChairs() {
@@ -170,5 +178,9 @@ public final class CoordinatesProvider {
 
     public static Point2D getBreakOutPoint() {
         return BREAK_OUT_POINT;
+    }
+
+    public static List<Point2D> getListOfLabelCoordinatesImporting() {
+        return listOfLabelCoordinatesImporting;
     }
 }

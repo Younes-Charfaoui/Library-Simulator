@@ -6,3 +6,14 @@
     -fx-background-radius: 10px;
 }
 
+#chairsLabel{
+   -fx-text-fill: #00C853;
+}
+
+#tableLabel{
+   -fx-text-fill: #6A1B9A;
+}
+
+#importLabel{
+   -fx-text-fill: #2962FF;
+}
