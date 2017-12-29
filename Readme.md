@@ -1,5 +1,7 @@
 ## The Library Simulator 
 
+![alt text](https://github.com/Younes-Charfaoui/Library-Simulator/blob/master/src/res/Images/Things/Library.JPG)
+
 This is a project for the practical work of the Operating system
 module in The University of Ibn Khaldoun - Algeria in which
 we had used the notion of threads and parallelism to make a library simulator.
@@ -53,8 +55,10 @@ in this directory there is 2 packages the "com.librarysimulator" and "res".
        main action such handling event and initialisation of semaphores and so on.
 
     * "Models" package: contain 2 classes
-        - "Student" extends the thread class and override the run method in which the cycle life of the student is presented.
-        - "Professor" extends the thread class and override the run method in which the cycle life of the professor is presented.
+        - "Student" extends the thread class and override the run method in which 
+        the cycle life of the student is presented.
+        - "Professor" extends the thread class and override the run method in which 
+        the cycle life of the professor is presented.
 
     * "Providers" package: contain 3 classes
         - "BooksProvider" in which we provide books in the application.
