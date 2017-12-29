@@ -54,7 +54,7 @@ public class Main extends Application {
     public static final List<Label> mBooksLabelImporting = new ArrayList<>();
 
     //number of copies in each book
-    private static final int NUMBER_OF_BOOKS = 1;
+    private static final int NUMBER_OF_BOOKS = 3;
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
