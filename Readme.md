@@ -78,4 +78,4 @@ in this directory there is 2 packages the "com.librarysimulator" and "res".
 Thanks for all who read this code, I wish this code helps people to learn something new, if you find any issue
 just put it in the repository issue section. Thank you again , Peace :D .
 
-سبحانك الله و بحمدك, أشهد ان لا إله إلا أنت استغفرك و اتوب اليك.
+سبحانك اللهم و بحمدك, أشهد ان لا إله إلا أنت استغفرك و اتوب اليك.
