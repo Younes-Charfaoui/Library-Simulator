@@ -16,24 +16,23 @@ The Code was Written In Pure Java in the IntellijJ IDEA IDE.
 The synchronisation has been made using semaphores because it is difficult to manage 79 semaphores,
 so we accept the challenge, we had coded the GUI with the JavaFX library, in which there are a lot of
 classes to make a simple or a complex GUI, for animating things in the scene we used also the packages
-of JavaFX : javafx.animation, with this package it is very easy to animate things
-around the scene in a complex and a simple way, for the static information
-like the images and the coordinator of the points and books we used simple final 
-classes and it is commented everywhere.
+of JavaFX : javafx.animation, with this package it is very easy to animate in a complex or a simple way, for the static information
+like the images, the coordinatates of the points and books we used simple final 
+classes and they are commented everywhere.
 
 ## Goal From This Project
 
-First of all, the goal was to get knowledge how to use Threading in Java and how
-to manage thread by using semaphores and different kind of Mutual Exclusion to
-protect Critical sections, such as the books in the library, one reader can access
+First of all, the goal was to get knowledge how to use threads in java and how
+to manage threads by using semaphores and different kind of mutual exclusion to
+protect critical sections, such as the books in the library, one reader can access
 to a book, when the other want to access the same book, they will block until the current
 reader will notify them when he will go out and release the book, the places are also critical section,
 the table, the chairs, importing places, chain places and so on.
-Also, By this project we can say that we use this solution to managing robots in real life, we can imagine that
-we have robots to different works in the same area, so these robots must know the situation of other robots to
-make a decision and do an action in the environment if the case we are in fully observable Environment,
-really it is interesting to manage robots by semaphores, so the semaphores are really great tools to managing
-real problem in the world of parallelism not only for thread, for this example, it is also for robots, or in
+Also, By this project we can say that we can use this solution to manage robots in real life, we can imagine that
+we have robots do different works in the same area, so these robots must know the situation of other robots to
+make a decision and do an action in the environment if the case we are in fully observable environment,
+really it is interesting to manage robots by semaphores,they  are really great tools to manage
+problem in the real world of parallelism not only for thread, for this example, it is also for robots, or in
 general for anything that can execute simultaneously.
 
 ## How to use the application
