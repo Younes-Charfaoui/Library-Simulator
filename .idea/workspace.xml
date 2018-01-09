@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Student.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Student.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Providers/CoordinatesProvider.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Providers/CoordinatesProvider.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/res/Others/style.css" afterPath="$PROJECT_DIR$/out/production/Library Simulator/res/Others/style.css" />
-      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
-      <change beforePath="$PROJECT_DIR$/src/res/Others/style.css" afterPath="$PROJECT_DIR$/src/res/Others/style.css" />
+      <change beforePath="$PROJECT_DIR$/Library Simulator.iml" afterPath="$PROJECT_DIR$/Library Simulator.iml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,6 +99,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Library Simulator.iml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,7 +121,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
@@ -206,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java" />
-        <option value="$PROJECT_DIR$/Library Simulator.iml" />
         <option value="$PROJECT_DIR$/src/res/Others/style.css" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
@@ -214,11 +212,12 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
+        <option value="$PROJECT_DIR$/Library Simulator.iml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="width" value="983" />
     <option name="height" value="728" />
   </component>
@@ -559,7 +558,7 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="983" height="728" extended-state="1" />
+    <frame x="0" y="0" width="983" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -572,7 +571,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.295764" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29469123" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25869894" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1101,14 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/res/Others/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1194,14 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
@@ -1219,6 +1202,22 @@
           <folding>
             <element signature="docComment;field#mBook#0;class#Student#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
