@@ -1,8 +1,10 @@
 package com.librarysimulator.Providers;
 
+import com.mysql.fabric.xmlrpc.base.Array;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public final class CoordinatesProvider {

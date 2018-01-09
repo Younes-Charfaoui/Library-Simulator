@@ -37,7 +37,7 @@ public class Main extends Application {
      */
 
     //an constant for the duration of the reading ,animation and others
-    public static final int DURATION_READING = 60_000;
+    public static final int DURATION_READING = 30_000;
     public static final int DURATION_ANIMATION = 1_000;
     public static final int DURATION_IMPORTING = 2_000;
     public static final int DURATION_RETURNING = 3_000;
@@ -54,7 +54,7 @@ public class Main extends Application {
     public static final List<Label> mBooksLabelImporting = new ArrayList<>();
 
     //number of copies in each book
-    private static final int NUMBER_OF_BOOKS = 3;
+    private static final int NUMBER_OF_BOOKS = 1;
 
     //variable holding the current value of the choice boxes
     private String mCurrentChoiceProfessor, mCurrentChoiceStudent, mCurrentChoiceRandom;
@@ -80,7 +80,7 @@ public class Main extends Application {
     public static final List<Semaphore> mChainSemaphoresList = new ArrayList<>();
 
     //we need in total of 6 semaphores for the finals out 6 places
-    public static final List<Semaphore> mOutChainSemaphoresList = new ArrayList<>();
+    public static final Semaphore mOutChainSemaphore = new Semaphore(1);
 
     //semaphores for protecting the counter of the waiting student in each books
     public static final Semaphore mStudentCounterMutex = new Semaphore(1),
@@ -171,9 +171,9 @@ public class Main extends Application {
          */
         stage.setTitle("Library Simulator");
         stage.setScene(mainScene);
+
         stage.setResizable(false);
         stage.show();
-
     }
 
     /**
@@ -232,10 +232,6 @@ public class Main extends Application {
         //initialising the list of the chain semaphores
         for (int i = 0; i < 4; i++) {
             mChainSemaphoresList.add(new Semaphore(1));
-        }
-
-        for (int i = 0; i < 6; i++) {
-            mOutChainSemaphoresList.add(new Semaphore(1));
         }
     }
 
@@ -401,10 +397,10 @@ public class Main extends Application {
 
 
         //setting position of each button
-        mAddStudentButton.setLayoutY(40);
         mAddStudentButton.setStyle("-fx-base: #AB47BC;");
         mAddProfessorButton.setStyle("-fx-base: #64B5F6;");
         mAddRandomButton.setStyle("-fx-base: #00E676;");
+        mAddStudentButton.setLayoutY(40);
         mAddProfessorButton.setLayoutY(90);
         mAddRandomButton.setLayoutY(140);
 
@@ -457,7 +453,6 @@ public class Main extends Application {
                 new Professor(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
                 new Student(mBooksObservableList.get(new Random().nextInt(mBooksObservableList.size()))).start();
             }
-
         });
 
         //adding button to the root node

@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Student.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Student.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Providers/CoordinatesProvider.class" afterPath="$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Providers/CoordinatesProvider.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Library Simulator/res/Others/style.css" afterPath="$PROJECT_DIR$/out/production/Library Simulator/res/Others/style.css" />
+      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" afterPath="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
+      <change beforePath="$PROJECT_DIR$/src/res/Others/style.css" afterPath="$PROJECT_DIR$/src/res/Others/style.css" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -13,6 +24,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Library_Simulator$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1511604155824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -71,24 +85,20 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1804">
-              <caret line="69" column="39" lean-forward="false" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+            <state relative-caret-position="39">
+              <caret line="233" column="27" lean-forward="false" selection-start-line="233" selection-start-column="27" selection-end-line="233" selection-end-column="27" />
               <folding>
                 <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-                <element signature="method#start#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
                 <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-                <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
                 <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
                 <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
                 <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-                <element signature="e#16729#16890#0" expanded="false" />
-                <element signature="e#16937#19923#0" expanded="false" />
                 <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
                 <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -100,31 +110,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Library Simulator.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17595">
-              <caret line="778" column="1" lean-forward="false" selection-start-line="778" selection-start-column="1" selection-end-line="778" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="469">
+              <caret line="757" column="1" lean-forward="true" selection-start-line="757" selection-start-column="1" selection-end-line="757" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="54" column="52" lean-forward="false" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
+            <state relative-caret-position="294">
+              <caret line="681" column="0" lean-forward="true" selection-start-line="681" selection-start-column="0" selection-end-line="681" selection-end-column="0" />
               <folding>
                 <element signature="docComment;field#mBook#0;class#Student#0" expanded="false" />
               </folding>
@@ -132,51 +134,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="80" column="23" lean-forward="false" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+            <state relative-caret-position="315">
+              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImagesUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="134" column="102" lean-forward="false" selection-start-line="134" selection-start-column="102" selection-end-line="134" selection-end-column="102" />
-              <folding>
-                <element signature="docComment;method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#createImageViewOfProfessor#0;class#ImagesUtilities#0" expanded="false" />
-                <element signature="docComment;method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#createImageViewOfProfessor#1;class#ImagesUtilities#0" expanded="false" />
-                <element signature="method#peoplePreview#0;class#ImagesUtilities#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImagesProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-              <folding>
-                <element signature="docComment;field#listOfProfessor#0;class#ImagesProvider#0" expanded="false" />
-                <element signature="initializer##0;class#ImagesProvider#0" expanded="false" />
-                <element signature="docComment;method#getListOfStudent#0;class#ImagesProvider#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -200,6 +163,7 @@
       <find>student</find>
       <find>Professor</find>
       <find>System</find>
+      <find>(</find>
     </findStrings>
     <replaceStrings>
       <replace>Professor</replace>
@@ -242,19 +206,19 @@
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Hello.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
-        <option value="$PROJECT_DIR$/src/res/Others/style.css" />
-        <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
         <option value="$PROJECT_DIR$/Library Simulator.iml" />
+        <option value="$PROJECT_DIR$/src/res/Others/style.css" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java" />
         <option value="$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java" />
         <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java" />
+        <option value="$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="width" value="983" />
     <option name="height" value="728" />
   </component>
@@ -297,57 +261,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="com.librarysimulator" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="com.librarysimulator" type="1f31426a:PackageElementNode" />
-              <item name="Application" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="com.librarysimulator" type="1f31426a:PackageElementNode" />
-              <item name="Models" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="com.librarysimulator" type="1f31426a:PackageElementNode" />
-              <item name="Providers" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="com.librarysimulator" type="1f31426a:PackageElementNode" />
-              <item name="Utilities" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="res" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Library Simulator" type="616d4139:PackageViewModuleNode" />
-              <item name="res" type="1f31426a:PackageElementNode" />
-              <item name="Images" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -355,61 +268,6 @@
             <path>
               <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
               <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
@@ -450,23 +308,11 @@
               <item name="librarysimulator" type="462c0819:PsiDirectoryNode" />
               <item name="Utilities" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Library Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Library Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="Others" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -713,12 +559,12 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="0" width="983" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -726,7 +572,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2965204" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.295764" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25869894" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -791,19 +637,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -849,19 +691,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -907,19 +745,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -958,19 +792,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -995,19 +825,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1039,19 +865,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1103,19 +925,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1140,19 +958,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1187,19 +1001,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1234,19 +1044,15 @@
           <folding>
             <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
             <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
             <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
             <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
@@ -1281,37 +1087,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+        <state relative-caret-position="360">
+          <caret line="504" column="0" lean-forward="true" selection-start-line="504" selection-start-column="0" selection-end-line="504" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java">
+    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        <state relative-caret-position="55">
+          <caret line="328" column="5" lean-forward="true" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/res/Others/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="105">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="233" column="27" lean-forward="false" selection-start-line="233" selection-start-column="27" selection-end-line="233" selection-end-column="27" />
+          <folding>
+            <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
+            <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/CoordinatesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/BooksProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="docComment;field#listOfProfessor#0;class#ImagesProvider#0" expanded="false" />
+            <element signature="docComment;method#getListOfStudent#0;class#ImagesProvider#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Utilities/ImagesUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="134" column="102" lean-forward="false" selection-start-line="134" selection-start-column="102" selection-end-line="134" selection-end-column="102" />
+        <state relative-caret-position="274">
+          <caret line="50" column="83" lean-forward="false" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
           <folding>
             <element signature="docComment;method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#ImagesUtilities#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfStudent#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
+            <element signature="method#createImageViewOfStudent#1;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="method#createImageViewOfEmployee#0;class#ImagesUtilities#0" expanded="false" />
             <element signature="docComment;method#createImageViewOfEmployee#1;class#ImagesUtilities#0" expanded="false" />
@@ -1325,94 +1194,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Providers/ImagesProvider.java">
+    <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding>
-            <element signature="docComment;field#listOfProfessor#0;class#ImagesProvider#0" expanded="false" />
-            <element signature="initializer##0;class#ImagesProvider#0" expanded="false" />
-            <element signature="docComment;method#getListOfStudent#0;class#ImagesProvider#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="54" column="52" lean-forward="false" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
-          <folding>
-            <element signature="docComment;field#mBook#0;class#Student#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library Simulator.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Professor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17595">
-          <caret line="778" column="1" lean-forward="false" selection-start-line="778" selection-start-column="1" selection-end-line="778" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Models/Professor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="504" column="0" lean-forward="true" selection-start-line="504" selection-start-column="0" selection-end-line="504" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1804">
-          <caret line="69" column="39" lean-forward="false" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+        <state relative-caret-position="469">
+          <caret line="757" column="1" lean-forward="true" selection-start-line="757" selection-start-column="1" selection-end-line="757" selection-end-column="1" />
           <folding>
-            <element signature="docComment;field#DURATION_READING#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initLabelMap#0;class#Main#0" expanded="false" />
-            <element signature="method#initLabelMap#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="method#initChainAndWaitingSemaphores#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="method#setupAndAddingImages#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="method#setupChoiceBoxesAndCheckBox#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#setupButtons#0;class#Main#0" expanded="false" />
-            <element signature="e#16729#16890#0" expanded="false" />
-            <element signature="e#16937#19923#0" expanded="false" />
-            <element signature="method#initHashMaps#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#settingButtons#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="method#initBooksMap#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#main#0;class#Main#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Library Simulator/com/librarysimulator/Application/Main.class">
+    <entry file="file://$PROJECT_DIR$/src/com/librarysimulator/Models/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="328" column="5" lean-forward="true" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="80" column="23" lean-forward="false" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="294">
+          <caret line="681" column="0" lean-forward="true" selection-start-line="681" selection-start-column="0" selection-end-line="681" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;field#mBook#0;class#Student#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

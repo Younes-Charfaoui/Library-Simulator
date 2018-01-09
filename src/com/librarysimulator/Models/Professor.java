@@ -109,14 +109,14 @@ public class Professor extends Thread {
             //waiting the animation to stop
             extraSemaphore.acquire();
 
+            //now we can let someone access the first places because we are in the second place
+            mChainSemaphoresList.get(0).release();
+
             //to the third place
             transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(2).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(2).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - INITIAL_X);
             transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - INITIAL_Y);
-
-            //now we can let someone access the first places because we are in the second place
-            mChainSemaphoresList.get(0).release();
 
             //getting access to the third place by its semaphore
             mChainSemaphoresList.get(2).acquire();
@@ -125,14 +125,14 @@ public class Professor extends Thread {
             //waiting the animation to stop
             extraSemaphore.acquire();
 
+            //now we can let someone access the second places because we are in the third place
+            mChainSemaphoresList.get(1).release();
+
             //to the fourth place
             transitionAnimation.setFromX(CoordinatesProvider.getListOfChainPlaces().get(1).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfChainPlaces().get(1).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfChainPlaces().get(0).getX() - INITIAL_X);
             transitionAnimation.setToY(CoordinatesProvider.getListOfChainPlaces().get(0).getY() - INITIAL_Y);
-
-            //now we can let someone access the second places because we are in the third place
-            mChainSemaphoresList.get(1).release();
 
             //getting access to the final mChainSemaphore place by its semaphore
             mChainSemaphoresList.get(3).acquire();
@@ -240,7 +240,6 @@ public class Professor extends Thread {
 
             mProfessorCounterMutex.acquire();
             mProfessorCounterMap.replace(book, mProfessorCounterMap.get(book) - 1);
-
             mProfessorCounterMutex.release();
 
             /**
@@ -379,7 +378,6 @@ public class Professor extends Thread {
                 if (mWaitingCounter == 0) {
 
                     //release the counter semaphore for the waiting counter
-
 
                     //if it is the case we check if there is empty place in the table
                     mTableCounterMutex.acquire();
@@ -680,7 +678,7 @@ public class Professor extends Thread {
              * finally we will go out throw the chain of course
              */
 
-            mOutChainSemaphoresList.get(0).acquire();
+            mOutChainSemaphore.acquire();
 
 
             //now we have to translate to the first place in the out chain
@@ -699,8 +697,6 @@ public class Professor extends Thread {
 
             mReturningSemaphore.release();
 
-            mOutChainSemaphoresList.get(1).acquire();
-
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - INITIAL_X);
@@ -708,9 +704,8 @@ public class Professor extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(0).release();
+            mOutChainSemaphore.release();
 
-            mOutChainSemaphoresList.get(2).acquire();
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - INITIAL_Y);
@@ -719,20 +714,12 @@ public class Professor extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(1).release();
-
-            mOutChainSemaphoresList.get(3).acquire();
-
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - INITIAL_X);
             transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
-
-            mOutChainSemaphoresList.get(2).release();
-
-            mOutChainSemaphoresList.get(4).acquire();
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - INITIAL_Y);
@@ -741,18 +728,12 @@ public class Professor extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(3).release();
-
-            mOutChainSemaphoresList.get(5).acquire();
-
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - INITIAL_X);
             transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(5).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
-
-            mOutChainSemaphoresList.get(4).release();
 
             /**
              * and now the final transition out of the scene :D
@@ -764,8 +745,6 @@ public class Professor extends Thread {
             transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(6).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
-
-            mOutChainSemaphoresList.get(5).release();
 
             /**
              * at these moment the Professor is out the scene, he finish reading and

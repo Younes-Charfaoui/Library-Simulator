@@ -62,7 +62,7 @@ public class Student extends Thread {
             Platform.runLater(() -> mRoot.getChildren().add(student));
 
             /**
-             * defining the Transition with the time, X and Y ; and the Specific Node
+             * defining the Transition with the time, X and Y ; and the Specific Node quitting
              */
 
             TranslateTransition transitionAnimation = new TranslateTransition(Duration.millis(DURATION_ANIMATION), student);
@@ -173,7 +173,6 @@ public class Student extends Thread {
                     break;
                 }
             }
-
             mAvailableImportMutex.release();
 
             //creating the translation from the mChainSemaphore to import via a place know as Entry points
@@ -225,15 +224,15 @@ public class Student extends Thread {
              */
 
             //sleeping to simulate the waiting for the mBook to come
-            Thread.sleep(DURATION_IMPORTING);
+            sleep(DURATION_IMPORTING);
 
             //adding one to the counter of student in this book
             mStudentCounterMutex.acquire();
-            mStudentCounterMap.replace(book,mStudentCounterMap.get(book)+1);
+            mStudentCounterMap.replace(book, mStudentCounterMap.get(book) + 1);
             mStudentCounterMutex.release();
 
             mPriorityMapMutex.acquire();
-            mPriorityMap.replace(book,true);
+            mPriorityMap.replace(book, true);
             mPriorityMapMutex.release();
 
             //acquiring the book by two semaphores to do the priority
@@ -242,7 +241,7 @@ public class Student extends Thread {
 
             //if we get the book so we have to decrement the counter by one in this book
             mStudentCounterMutex.acquire();
-            mStudentCounterMap.replace(book,mStudentCounterMap.get(book)-1);
+            mStudentCounterMap.replace(book, mStudentCounterMap.get(book) - 1);
             mStudentCounterMutex.release();
 
             /**
@@ -612,10 +611,10 @@ public class Student extends Thread {
              * places, each of these must be in mutual exclusion -_-.
              */
 
+            mReturningSemaphore.acquire();
+
             Point2D returnPoint = null;
             int indexInReturn = -1;
-
-            mReturningSemaphore.acquire();
 
             //searching the empty place in the returning places
             mAvailableReturnMutex.acquire();
@@ -668,7 +667,7 @@ public class Student extends Thread {
                 mPriorityBooksSemaphoresMap.get(book).release();
                 mStudentCounterMutex.acquire();
                 mPriorityMapMutex.acquire();
-                if(mStudentCounterMap.get(book) == 0 ) mPriorityMap.replace(book,false);
+                if (mStudentCounterMap.get(book) == 0) mPriorityMap.replace(book, false);
                 mPriorityMapMutex.release();
                 mStudentCounterMutex.release();
             }
@@ -679,7 +678,7 @@ public class Student extends Thread {
              * finally we will go out throw the chain of course
              */
 
-            mOutChainSemaphoresList.get(0).acquire();
+            mOutChainSemaphore.acquire();
 
             //now we have to translate to the first place in the out chain
             if (returnPoint != null) {
@@ -698,7 +697,6 @@ public class Student extends Thread {
 
             mReturningSemaphore.release();
 
-            mOutChainSemaphoresList.get(1).acquire();
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(0).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(0).getY() - INITIAL_Y);
@@ -707,8 +705,8 @@ public class Student extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(0).release();
-            mOutChainSemaphoresList.get(2).acquire();
+            mOutChainSemaphore.release();
+
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(1).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(1).getY() - INITIAL_Y);
@@ -717,18 +715,12 @@ public class Student extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(1).release();
-            mOutChainSemaphoresList.get(3).acquire();
-
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(2).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(2).getY() - INITIAL_Y);
             transitionAnimation.setToX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - INITIAL_X);
             transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
-
-            mOutChainSemaphoresList.get(2).release();
-            mOutChainSemaphoresList.get(4).acquire();
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(3).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(3).getY() - INITIAL_Y);
@@ -737,8 +729,6 @@ public class Student extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(3).release();
-            mOutChainSemaphoresList.get(5).acquire();
 
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(4).getX() - INITIAL_X);
             transitionAnimation.setFromY(CoordinatesProvider.getListOfOutChainPlaces().get(4).getY() - INITIAL_Y);
@@ -747,7 +737,6 @@ public class Student extends Thread {
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
 
-            mOutChainSemaphoresList.get(4).release();
 
             //and now the final transition out of the scene :D
             transitionAnimation.setFromX(CoordinatesProvider.getListOfOutChainPlaces().get(5).getX() - INITIAL_X);
@@ -756,8 +745,6 @@ public class Student extends Thread {
             transitionAnimation.setToY(CoordinatesProvider.getListOfOutChainPlaces().get(6).getY() - INITIAL_Y);
             Platform.runLater(transitionAnimation::play);
             extraSemaphore.acquire();
-
-            mOutChainSemaphoresList.get(5).release();
 
             /**
              * at these moment the student is out the scene, he finish reading and

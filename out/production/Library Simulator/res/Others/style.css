@@ -1,8 +1,6 @@
 
 /* styling the buttons*/
 #AddButtons{
-    /*-fx-background-color : #d9d9d9;
-    -fx-border : 1 px solid #676767;*/
     -fx-background-radius: 10px;
 }
 
