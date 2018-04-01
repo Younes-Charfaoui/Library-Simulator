@@ -44,7 +44,7 @@ a specific book in the choice box, otherwise the button will launch 20 readers t
 
 ## Repository structure
 
-The main application and the resources are in the directory "src":
+The main application and the resources are in <mark>Younes</mark> the directory "src":
 in this directory there is 2 packages the "com.librarysimulator" and "res".
 
 "com.librarysimulator" : contain 4 packages
